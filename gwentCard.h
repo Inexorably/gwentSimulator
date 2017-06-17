@@ -5,12 +5,11 @@
 #include <QString>
 
 
-class GwentCard
-{
+class GwentCard{
 public:
-    GwentCard(QString name, int type, int basePower, int baseArmor);
+    GwentCard(QString name, char type, int basePower, int baseArmor);
     //Note that position is passed in the form of a 3d size_t var.
-    //First number is board / graveyard / hand / deck respectively, 0 1 2 3.
+    //First number is board / graveyard / hand / deck respectively, 0 1 2 3, 4 for banished.
     //Second number is row number (only relevant for board).  Melee, ranged, siege is 0 1 2.
     //Third number is index in the vector / deque.
     //Fourth number is which player's side it is on, same as gwentPlayer.id (1 or 2).
@@ -28,6 +27,7 @@ public:
                     // m - Melee
                     // r - Ranged
                     // s - Siege
+                    // a - agile
     QString faction;
     int basePower;
     int baseArmor;
@@ -43,6 +43,7 @@ public:
 
     //True if spying, else false.  Initializes to false.  Changes to false when no longer on opponent's side.
     bool spying;
+    bool locked;
 
     //The timer.  The first parameter is how many turns to tick the ratio is (such as 2 for vran).  The second is for not looping (Octivist, 0 or false), or looping (Vran, 1 or true).
     int timer[2];
