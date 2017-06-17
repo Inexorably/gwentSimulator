@@ -6,8 +6,7 @@
 #include <deque>
 
 
-class GwentPlayer
-{
+class GwentPlayer{
 public:
     GwentPlayer( int id );
 
