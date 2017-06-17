@@ -1,6 +1,5 @@
 #include "gwentCard.h"
 
-GwentCard::GwentCard()
-{
+GwentCard::GwentCard(){
 
 }

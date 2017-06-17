@@ -28,7 +28,7 @@ void GwentGame::changeTurnPlayer(){
     }
 }
 
-void GwentGame::getPlayerPointTotal(int playerId){
+int GwentGame::getPlayerPointTotal(int playerId){
     if (playerId == 1){
         return playerOne.getPointTotal();
     }
