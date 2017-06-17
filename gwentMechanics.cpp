@@ -25,17 +25,17 @@ void banish(GwentCard &target, GwentPlayer &player, GwentBoard &board){
     //Second number is row number (only relevant for board).  Melee, ranged, siege is 0 1 2.
     //Third number is index in the vector / deque.
     //Fourth number is which player's side it is on, same as GwentPlayer.id (1 or 2).
-    size_t position[4] = target.position;
+    std::vector<size_t> position = target.position;
 
     //To which player's banished zone depends upon where it was banished.
     if (target.position[3] == 1){
-        board.playerOneSide.banished.push_back(target);
+        board.playerOneBanished.push_back(target);
     }
     else{
-        board.playerTwoSide.banished.push_back(target);
+        board.playerTwoBanished.push_back(target);
     }
     //We now remove the card from where it was originally.
-    removeCard(GwentCard &target, GwentPlayer &player, GwentBoard &board);
+    //removeCard(GwentCard &target, GwentPlayer &player, GwentBoard &board);
 }
 
 //Consume functions.  If the target is in the hand / field it is sent to grave, else if in grave it is banished.  Note: should activate a "consumed trigger", as other mechanics shall with their triggers.
@@ -86,7 +86,7 @@ void removeCard(GwentCard &target, GwentPlayer &player, GwentBoard &board){
     //Second number is row number (only relevant for board).  Melee, ranged, siege is 0 1 2.
     //Third number is index in the vector / deque.
     //Fourth number is which player's side it is on, same as GwentPlayer.id (1 or 2).
-    size_t position[4] = target.position;
+    std::vector<size_t> position = target.position;
 
     //Handle the case that it is on the board.
     if (position[0] == 0){
@@ -95,36 +95,38 @@ void removeCard(GwentCard &target, GwentPlayer &player, GwentBoard &board){
             //Melee row.
             //It can be on either player's side.
             if (position[3] == 1){
-                board.playerOneSide.melee.erase(board.playerOneSide.melee.begin()+position[2]);
+                board.playerOneMelee.erase(board.playerOneMelee.begin()+position[2]);
             }
             else{
-                board.playerTwoSide.melee.erase(board.playerTwoSide.melee.begin()+position[2]);
+                board.playerTwoMelee.erase(board.playerTwoMelee.begin()+position[2]);
             }
         }
         else if (position[1] == 1){
             //Ranged row.
             //It can be on either player's side.
             if (position[3] == 1){
-                board.playerOneSide.ranged.erase(board.playerOneSide.ranged.begin()+position[2]);
+                board.playerOneRanged.erase(board.playerOneRanged.begin()+position[2]);
             }
             else{
-                board.playerTwoSide.ranged.erase(board.playerTwoSide.ranged.begin()+position[2]);
+                board.playerTwoRanged.erase(board.playerTwoRanged.begin()+position[2]);
             }
         }
         else if (position[1] == 2){
             //Siege row.
             //It can be on either player's side.
             if (position[3] == 1){
-                board.playerOneSide.siege.erase(board.playerOneSide.siege.begin()+position[2]);
+                board.playerOneSiege.erase(board.playerOneSiege.begin()+position[2]);
             }
             else{
-                board.playerTwoSide.siege.erase(board.playerTwoSide.siege.begin()+position[2]);
+                board.playerTwoSiege.erase(board.playerTwoSiege.begin()+position[2]);
             }
         }
     }
     //Account for the event that we must remove from the graveyard.  Note that graveyard is a member of board.playerOneSide.graveyard (ex).
     else if (position[0] == 1)
-        Leaving off here
+        return;
+    //LEAVING OFF HERE
+    return;
 }
 
 //Reset the unit to its base power.

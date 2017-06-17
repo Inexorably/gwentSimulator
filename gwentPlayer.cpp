@@ -17,5 +17,5 @@ void GwentPlayer::draw(){
 }
 
 int GwentPlayer::getPointTotal(){
-    return this.pointTotal;
+    return pointTotal;
 }
