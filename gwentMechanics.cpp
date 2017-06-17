@@ -35,7 +35,7 @@ void banish(GwentCard &target, GwentPlayer &player, GwentBoard &board){
         board.playerTwoBanished.push_back(target);
     }
     //We now remove the card from where it was originally.
-    //removeCard(GwentCard &target, GwentPlayer &player, GwentBoard &board);
+    removeCard(GwentCard &target, GwentPlayer &player, GwentBoard &board);
 }
 
 //Consume functions.  If the target is in the hand / field it is sent to grave, else if in grave it is banished.  Note: should activate a "consumed trigger", as other mechanics shall with their triggers.
