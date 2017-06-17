@@ -4,8 +4,7 @@
 #include "gwentPlayer.h"
 #include "gwentBoard.h"
 
-class GwentGame
-{
+class GwentGame{
 public:
     GwentGame(GwentPlayer playerOne, GwentPlayer playerTwo);
     GwentGame(GwentPlayer playerOne, GwentPlayer playerTwo, GwentBoard board);

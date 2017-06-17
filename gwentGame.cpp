@@ -21,10 +21,10 @@ int GwentGame::getTurnPlayerId(){
 //Change the current turn player.
 void GwentGame::changeTurnPlayer(){
     if (turnPlayerId == 1){
-        turnPlayerId == 2;
+        turnPlayerId = 2;
     }
     else{
-        turnPlayerId == 1;
+        turnPlayerId = 1;
     }
 }
 
