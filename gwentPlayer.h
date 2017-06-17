@@ -12,7 +12,7 @@ public:
     GwentPlayer( int id );
 
     //Some utility functions for the player.  Think, how should AI be stored.  Prob will run in game?
-    int getPointTotal(){ return this.pointTotal; }
+    int getPointTotal();
     void draw();
     void shuffleDeck();
 

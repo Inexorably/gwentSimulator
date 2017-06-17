@@ -6,7 +6,7 @@ GwentPlayer::GwentPlayer(int id){
 }
 
 
-GwentPlayer::draw(){
+void GwentPlayer::draw(){
     //Return if deck is empty.
     if (deck.size() == 0)
         return;
@@ -14,4 +14,8 @@ GwentPlayer::draw(){
     //Draw the top card of the deck.
     hand.push_back(deck.front());
     deck.pop_front();
+}
+
+int GwentPlayer::getPointTotal(){
+    return this.pointTotal;
 }
