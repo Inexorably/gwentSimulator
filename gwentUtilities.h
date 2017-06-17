@@ -1,7 +1,5 @@
-#include "gwentGame.h"
-
 #include <QString>
-
+/*
 void loadCards(){
     //hard code file name, retrive cards
 

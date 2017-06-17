@@ -18,14 +18,14 @@ SOURCES += main.cpp\
     gwentMechanics.cpp \
     gwentCard.cpp \
     gwentPlayer.cpp \
-    gwentBoard.cpp \
-    gwentUtilities.cpp
+    gwentBoard.cpp
 
 HEADERS  += mainwindow.h \
     gwentGame.h \
     gwentMechanics.h \
     gwentPlayer.h \
     gwentCard.h \
-    gwentBoard.h
+    gwentBoard.h \
+    gwentUtilities.h
 
 FORMS    += mainwindow.ui

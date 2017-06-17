@@ -39,7 +39,7 @@ void consume(GwentCard &target, GwentPlayer &player, GwentBoard &board);
 
 //Takes the target and damage amount as an input.  We pass the target by reference.  If the target dies, we move it to graveyard / banish it.
 //We also pass the player as an argument as some cards can damage cards in hand (such as Nilfguard revealing the highest card in one's hand and setting it to one strength).
-void damage(GwentCard &target, const int amount, GwentBoard &board, GwentPlayer &player);
+void damage(GwentCard &target, int amount, GwentBoard &board, GwentPlayer &player);
 
 //Demote the card to silver if gold.  If bronze stays bronze.
 void demote(GwentCard &target);
@@ -59,14 +59,20 @@ void draw(GwentPlayer &player);
 //Heal the target.  Can take just the card as input as will not change the board.
 void heal(GwentCard &target);
 
+//Find the highest card(s) on the row and returns pointers to them.
+std::vector<GwentCard*> highestOnRow(std::vector<GwentCard> row);
+
 //Returns the highest card on the board.
-GwentCard highest(const GwentBoard board);
+std::vector<GwentCard*> highest(GwentBoard board);
 
 //Locks the target, does not affect board.
 void lock(GwentCard &target);
 
-//Finds the lowest card on the board.
-GwentCard lowest(const GwentBoard board);
+//Find the lowest card(s) on the row and returns pointers to them.
+std::vector<GwentCard*> lowestOnRow(std::vector<GwentCard> row);
+
+//Finds the lowest card(s) on the board.
+std::vector<GwentCard*> lowest(GwentBoard board);
 
 //Mulligan the card at the target position (in hand).
 void mulligan(const size_t index, GwentPlayer &player);

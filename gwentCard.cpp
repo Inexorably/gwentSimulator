@@ -1,6 +1,6 @@
 #include "gwentCard.h"
 
-GwentCard::GwentCard(QString name, int type, int basePower, int baseArmor){
+GwentCard::GwentCard(QString name, char type, int basePower, int baseArmor){
     this->name = name;
     this->type = type;
     this->basePower = basePower;
