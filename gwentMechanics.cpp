@@ -39,16 +39,70 @@ void banish(GwentCard &target, GwentPlayer &player, GwentBoard &board){
 }
 
 //Consume functions.  If the target is in the hand / field it is sent to grave, else if in grave it is banished.  Note: should activate a "consumed trigger", as other mechanics shall with their triggers.
-void consume(GwentCard &target, GwentPlayer &player, GwentBoard &board){
+//Takes card consuming as an input too such that it can buff the consumed card.  Only grave hag will need to be hard coded for this.
+void consume(GwentCard &cardConsuming, GwentCard &target, GwentPlayer &player, GwentBoard &board){
+    std::vector<size_t> position = target.position;
 
+    //To which player's graveyard/banished zone depends upon where it was consumed from.
+    if (target.position[3] == 1){
+        //In the case the the target is consumed from the hand / deck / board, it is sent to the graveyard.
+        if (position[0] == 0 || position[0] == 2 || position[0] == 3){
+            board.playerOneGraveyard.push_back(target);
+            removeCard(target, player, board);
+        }
+        //In the case it is consumed from grave, it is banished.
+        else if (position[0] == 1){
+            board.playerOneBanished.push_back(target);
+            removeCard(target, player, board);
+        }
+    }
+    else{
+        //In the case the the target is consumed from the hand / deck / board, it is sent to the graveyard.
+        if (position[0] == 0 || position[0] == 2 || position[0] == 3){
+            board.playerTwoGraveyard.push_back(target);
+            removeCard(target, player, board);
+        }
+        //In the case it is consumed from grave, it is banished.
+        else if (position[0] == 1){
+            board.playerTwoBanished.push_back(target);
+            removeCard(target, player, board);
+        }
+    }
+    addArmor(cardConsuming, target.currentPower);
 }
 
 //Takes the target and damage amount as an input.  We pass the target by reference.  If the target dies, we move it to graveyard / banish it.
 //We also pass the player as an argument as some cards can damage cards in hand (such as Nilfguard revealing the highest card in one's hand and setting it to one strength).
-void damage(GwentCard &target, const int amount, GwentBoard &board, GwentPlayer &player);
+void damage(GwentCard &target, const int amount, GwentBoard &board, GwentPlayer &player){
+    //Handle the case where the target does not die.
+    if (target.currentArmor >= amount){
+        target.currentArmor -= amount;
+        return;
+    }
+    else if (target.currentArmor > 0){
+        amount -= target.currentArmor;
+        target.currentArmor = 0;
+    }
+    //Now either the target will tank the post armor damage or die.
+    //Account for target tanking it.
+    if (target.currentPower > amount){
+        target.currentPower -= amount;
+        return;
+    }
+    //Else the target dies.
+    else if (target.currentPower <= amount){
+        destroy(target, player, board);
+    }
+    return;
+}
 
 //Demote the card to silver if gold.  If bronze stays bronze.
-void demote(GwentCard &target);
+void demote(GwentCard &target){
+    if (target.rank == 'g')
+        target.rank = 's';
+    else if (target.rank == 's')
+        target.rank = 'b';
+}
 
 //Destroy the target.
 void destroy(GwentCard &target, GwentPlayer &player, GwentBoard &board);
