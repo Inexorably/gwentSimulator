@@ -39,7 +39,9 @@ void banish(GwentCard &target, GwentPlayer &player, GwentBoard &board){
 }
 
 //Consume functions.  If the target is in the hand / field it is sent to grave, else if in grave it is banished.  Note: should activate a "consumed trigger", as other mechanics shall with their triggers.
-void consume(GwentCard &target, GwentPlayer &player, GwentBoard &board);
+void consume(GwentCard &target, GwentPlayer &player, GwentBoard &board){
+
+}
 
 //Takes the target and damage amount as an input.  We pass the target by reference.  If the target dies, we move it to graveyard / banish it.
 //We also pass the player as an argument as some cards can damage cards in hand (such as Nilfguard revealing the highest card in one's hand and setting it to one strength).
