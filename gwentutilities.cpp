@@ -1,21 +1,37 @@
 #include "gwentGame.h"
 
+#include <QString>
+
 void loadCards(){
     //hard code file name, retrive cards
 
-	/*
+	
+	//Format: "Adrenaline Rush",Teste,"8326"
     //parse the csv file
     std::vector<GwentCard>;
     cardLibrary.push_back(GwentCard(file[1], file[2], file[3]));
 
     ifstream file ( "cards.csv" ); 
-	string value;
-	while ( file.good() )
-	{
-	     getline ( file, value, ',' ); // read a string until next comma
-	     cout << string( value, 1, value.length()-2 ); // display value removing the first and the last character from it
+
+	std::string name;
+	std::string type;
+	std::string basePower;
+	while(file.good()){
+
+	    getline(file, ID, ',');
+	    cout << "ID: " << ID << " " ; 
+
+	    getline(file, nome, ',') ;
+	    cout << "User: " << nome << " " ;
+
+	    getline(file, idade, ',') ;
+	    cout << "Idade: " << idade << " "  ; 
+
+	    getline(file, genero, ' ') ; 
+	    cout << "Sexo: " <<  genero<< " "  ;
+
 	}
-	*/
+	
 }
 
 

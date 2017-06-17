@@ -8,7 +8,7 @@
 class GwentCard
 {
 public:
-    GwentCard(QString name, int basePower, int baseArmor);
+    GwentCard(QString name, int type, int basePower, int baseArmor);
     //Note that position is passed in the form of a 3d size_t var.
     //First number is board / graveyard / hand / deck respectively, 0 1 2 3.
     //Second number is row number (only relevant for board).  Melee, ranged, siege is 0 1 2.
@@ -24,13 +24,19 @@ public:
     //Basic variables for information of card.  Base power of -1 for spells.
     //Note that name is not constant because cards can be transformed (such as raging berserker).
     QString name;
+    char type;      // e - Event
+                    // m - Melee
+                    // r - Ranged
+                    // s - Siege
+    QString faction;
     int basePower;
     int baseArmor;
-    int currentArmor;
-    int currentPower;
-
     //Rank can be bronze, silver, or gold.  Having char is more illustrative than using 0, 1, 2.  Ranks are b, s, g.
     char rank;
+
+    //Current stats for gameplay
+    int currentArmor;
+    int currentPower;
 
     //Boolean for revealed.  If true it is revealed, if false not revealed.  Initializes to false.
     bool revealed;
@@ -43,6 +49,9 @@ public:
 
     //We need a function to activate the effect of the card.  Can change the function type at later date.  QString name is good identifier to use.
     void effect(const QString name);
+
+    bool isWounded();
+    bool isBoosted();
 };
 
 #endif // GWENTCARD_H
