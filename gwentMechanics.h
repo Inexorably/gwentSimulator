@@ -87,16 +87,16 @@ void removeCard(GwentCard &target, GwentPlayer &player, GwentBoard &board);
 void reset(GwentCard &target);
 
 //Resurrect the target from the graveyard.
-void resurrect(GwentCard &target, GwentPlayer &player, GwentBoard &board);
+void resurrect(GwentCard &target, GwentPlayer &player, GwentBoard &board, std::vector<size_t> position);
 
 //Reveal the target.
 void reveal(GwentCard &target);
 
 //Spawn the target at the position.  Adds the card to the game and plays it.  Note that not all of position is needed (it can only be on the board, so need side, row number, and index, but we take the normal size for consistency.
-void spawn(GwentCard &target, const size_t position[4], GwentBoard &board);
+void spawn(GwentCard &target, std::vector<size_t> position, GwentBoard &board);
 
 //Summon the card from the deck.  Similair to spawn, but will remove the copy from the player's deck.
-void summon(GwentCard &target, const size_t position[4], GwentPlayer &player, GwentBoard &board);
+void summon(GwentCard &target, std::vector<size_t> position, GwentPlayer &player, GwentBoard &board);
 
 //Transform the card into a different card.
 void transform(GwentCard &target, const GwentCard transformedTo);
