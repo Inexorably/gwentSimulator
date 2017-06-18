@@ -18,9 +18,9 @@ public:
     //some var for boardState board
     std::deque<GwentCard> deck;
     std::vector<GwentCard> hand;
+    int id;
 
 private:
-    int id;
     int pointTotal;
     int roundsWon;
 
