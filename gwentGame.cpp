@@ -13,6 +13,15 @@
 /*******************************Implementing gwentGame functions********************************/
 /***********************************************************************************************/
 
+GwentGame::GwentGame(){
+    GwentPlayer playerOneV(1);
+    GwentPlayer playerTwoV(2);
+    playerOne = playerOneV;
+    playerOne = playerTwoV;
+    turnNumber = 0;
+    turnPlayerId = 1;
+}
+
 //Get the id of the current turn player.
 int GwentGame::getTurnPlayerId(){
     return turnPlayerId;

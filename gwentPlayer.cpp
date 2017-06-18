@@ -1,5 +1,9 @@
 #include "gwentPlayer.h"
 
+GwentPlayer::GwentPlayer(){
+    id = -1;
+}
+
 GwentPlayer::GwentPlayer(int id){
     this->id = id;
     this->pointTotal = 0;

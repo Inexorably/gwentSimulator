@@ -8,7 +8,8 @@
 
 class GwentPlayer{
 public:
-    GwentPlayer( int id );
+    GwentPlayer();
+    GwentPlayer(int id);
 
     //Some utility functions for the player.  Think, how should AI be stored.  Prob will run in game?
     int getPointTotal();

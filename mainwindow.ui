@@ -6,29 +6,64 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1210</width>
-    <height>661</height>
+    <width>1233</width>
+    <height>656</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QLabel" name="label">
+   <widget class="QWidget" name="">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>70</y>
-      <width>1211</width>
-      <height>531</height>
+      <x>20</x>
+      <y>10</y>
+      <width>1201</width>
+      <height>581</height>
      </rect>
     </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="pixmap">
-     <pixmap>board.jpg</pixmap>
-    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_2">
+     <item>
+      <widget class="QTextBrowser" name="debugBrowser"/>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QPushButton" name="pushButton">
+         <property name="text">
+          <string>Advance Turn</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="debugPushButton">
+         <property name="text">
+          <string>Run Testing</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout">
+         <item>
+          <widget class="QCheckBox" name="checkBox">
+           <property name="text">
+            <string>Delete System32</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QCheckBox" name="checkBox_2">
+           <property name="text">
+            <string>Initiate self destruct sequence</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </item>
+    </layout>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -36,10 +71,16 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1210</width>
-     <height>20</height>
+     <width>1233</width>
+     <height>26</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuSkellige_best_class">
+    <property name="title">
+     <string>Skellige best class</string>
+    </property>
+   </widget>
+   <addaction name="menuSkellige_best_class"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
