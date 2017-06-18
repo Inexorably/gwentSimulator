@@ -20,5 +20,6 @@ bool GwentCard::isBoosted(){
 }
 
 void GwentCard::resetToBaseCopy(){
-	return;
+    return;
 }
+
