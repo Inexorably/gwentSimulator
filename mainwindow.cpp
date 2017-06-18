@@ -98,3 +98,7 @@ void MainWindow::on_pushButton_clicked(){
     ui->debugBrowser->append(temp);
     game.turnNumber++;
 }
+
+void MainWindow::on_debugButtonMatt_clicked(){
+    //Debug shit can go here.
+}
