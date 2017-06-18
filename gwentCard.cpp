@@ -1,5 +1,9 @@
 #include "gwentCard.h"
 
+GwentCard::GwentCard(){
+
+}
+
 GwentCard::GwentCard(QString name, QString faction, int basePower, QString type, QString rank, QString loyalty, int baseArmor){
     this->name = name;
     this->faction = faction;
