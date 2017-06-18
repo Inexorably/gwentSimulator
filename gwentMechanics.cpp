@@ -135,10 +135,10 @@ void damage(GwentCard &target, int amount, GwentBoard &board, GwentPlayer &playe
 
 //Demote the card to silver if gold.  If bronze stays bronze.
 void demote(GwentCard &target){
-    if (target.rank == 'g')
-        target.rank = 's';
-    else if (target.rank == 's')
-        target.rank = 'b';
+    if (target.rank == "Gold")
+        target.rank = "Silver";
+    else if (target.rank == "Silver")
+        target.rank = "Bronze";
 }
 
 //Destroy the target.

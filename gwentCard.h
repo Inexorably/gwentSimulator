@@ -39,9 +39,6 @@ public:
     //Boolean for revealed.  If true it is revealed, if false not revealed.  Initializes to false.
     bool revealed;
 
-    //Resets a card to its base version using the string name.
-    void resetToBaseCopy();
-
     //True if spying, else false.  Initializes to false.  Changes to false when no longer on opponent's side.
     bool spying;
     bool locked;
