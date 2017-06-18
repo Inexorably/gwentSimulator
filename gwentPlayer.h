@@ -14,9 +14,9 @@ public:
     int getPointTotal();
     void draw();
     void shuffleDeck();
+    int id;
 
 private:
-    int id;
     int pointTotal;
     int roundsWon;
 

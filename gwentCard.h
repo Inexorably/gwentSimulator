@@ -51,6 +51,9 @@ public:
 
     bool isWounded();
     bool isBoosted();
+
+    //Resets a card to its base version using the string name.
+    void resetToBaseCopy();
 };
 
 #endif // GWENTCARD_H
