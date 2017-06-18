@@ -1,9 +1,12 @@
 #include "gwentCard.h"
 
-GwentCard::GwentCard(QString name, char type, int basePower, int baseArmor){
+GwentCard::GwentCard(QString name, QString faction, int basePower, QString type, QString rank, QString loyalty, int baseArmor){
     this->name = name;
-    this->type = type;
+    this->faction = faction;
     this->basePower = basePower;
+    this->type = type;
+    this->rank = rank;
+    this->loyalty = loyalty;
     this->baseArmor = baseArmor;
 }
 

@@ -7,7 +7,8 @@
 
 class GwentCard{
 public:
-    GwentCard(QString name, char type, int basePower, int baseArmor);
+    GwentCard();
+    GwentCard(QString name, QString faction, int basePower, QString type, QString rank, QString loyalty, int baseArmor);
     //Note that position is passed in the form of a 3d size_t var.
     //First number is board / graveyard / hand / deck respectively, 0 1 2 3, 4 for banished.
     //Second number is row number (only relevant for board).  Melee, ranged, siege is 0 1 2.
@@ -23,16 +24,13 @@ public:
     //Basic variables for information of card.  Base power of -1 for spells.
     //Note that name is not constant because cards can be transformed (such as raging berserker).
     QString name;
-    char type;      // e - Event
-                    // m - Melee
-                    // r - Ranged
-                    // s - Siege
-                    // a - agile
+    QString type;
+    QString rank;
+    QString loyalty;
     QString faction;
+
     int basePower;
     int baseArmor;
-    //Rank can be bronze, silver, or gold.  Having char is more illustrative than using 0, 1, 2.  Ranks are b, s, g.
-    char rank;
 
     //Current stats for gameplay
     int currentArmor;
