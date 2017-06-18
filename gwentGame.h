@@ -6,6 +6,7 @@
 
 class GwentGame{
 public:
+    GwentGame();
     GwentGame(GwentPlayer playerOne, GwentPlayer playerTwo);
     GwentGame(GwentPlayer playerOne, GwentPlayer playerTwo, GwentBoard board);
 
@@ -14,18 +15,22 @@ public:
     void changeTurnPlayer();
     int getPlayerPointTotal(int playerId);
 
-private:
     //We need two players for the game.  It is fine to have them hard coded in this style and not in a structure because there will only ever be two players in the game.
     //The ai will be passed stuff it needs such as the board.
     GwentPlayer playerOne;
     GwentPlayer playerTwo;
     GwentBoard board;
+    int turnPlayerId;
+    int turnNumber;
+
+private:
+
 
 
     //The round number (1, 2, 3).
-    int turnPlayerId;
+
     int roundNumber;
-    int turnNumber;
+
 
     //Ends the round.  Moves all cards to grave except for resilient.  Will trigger death effects, creates an event for round end.  If the game is not over, calls startRound.
     void endRound();
