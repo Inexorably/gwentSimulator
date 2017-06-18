@@ -15,14 +15,14 @@ public:
     void draw();
     void shuffleDeck();
 
+    //some var for boardState board
+    std::deque<GwentCard> deck;
+    std::vector<GwentCard> hand;
+
 private:
     int id;
     int pointTotal;
     int roundsWon;
-
-    //some var for boardState board
-    std::deque<GwentCard> deck;
-    std::vector<GwentCard> hand;
 
 };
 
