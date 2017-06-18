@@ -15,3 +15,7 @@ bool GwentCard::isWounded(){
 bool GwentCard::isBoosted(){
     return (basePower < currentPower);
 }
+
+void GwentCard::resetToBaseCopy(){
+    return;
+}

@@ -29,7 +29,7 @@ void banish(GwentCard &target, GwentPlayer &player, GwentBoard &board){
     std::vector<size_t> position = target.position;
 
     //When a card is banished / destroyed / discard, its power is reset.
-    target.currentPower = target.basePower;
+    target.resetToBaseCopy();
 
     GwentCard original = target;
 
@@ -59,20 +59,31 @@ void consume(GwentCard &cardConsuming, GwentCard &target, GwentPlayer &player, G
     boost(cardConsuming, target.currentPower);
 
     //When a card is banished / destroyed / discard, its power is reset.
-    target.currentPower = target.basePower;
+    target.resetToBaseCopy();
 
     GwentCard original = target;
+
+    //Note that position is passed in the form of a 4d size_t var.
+    //First number is board / graveyard / hand / deck respectively, 0 1 2 3, 4 for banished.
+    //Second number is row number (only relevant for board).  Melee, ranged, siege is 0 1 2.
+    //Third number is index in the vector / deque.
+    //Fourth number is which player's side it is on, same as gwentPlayer.id (1 or 2).
 
     //To which player's graveyard/banished zone depends upon where it was consumed from.
     if (target.position[3] == 1){
         //In the case the the target is consumed from the hand / deck / board, it is sent to the graveyard.
         if (position[0] == 0 || position[0] == 2 || position[0] == 3){
-            //NOTE: RECORD THE POSITION CORRECTLY AS DONE IN THE BANISH FUNCTION.
+            //We update the position of target.
+            target.position[0] = 1;
+            target.position[2] = board.playerOneGraveyard.size();
             board.playerOneGraveyard.push_back(target);
             removeCard(original, player, board);
         }
         //In the case it is consumed from grave, it is banished.
         else if (position[0] == 1){
+            //We update the position of target.
+            target.position[0] = 4;
+            target.position[2] = board.playerOneBanished.size();
             board.playerOneBanished.push_back(target);
             removeCard(original, player, board);
         }
@@ -80,11 +91,17 @@ void consume(GwentCard &cardConsuming, GwentCard &target, GwentPlayer &player, G
     else{
         //In the case the the target is consumed from the hand / deck / board, it is sent to the graveyard.
         if (position[0] == 0 || position[0] == 2 || position[0] == 3){
+            //We update the position of target.
+            target.position[0] = 1;
+            target.position[2] = board.playerTwoGraveyard.size();
             board.playerTwoGraveyard.push_back(target);
             removeCard(original, player, board);
         }
         //In the case it is consumed from grave, it is banished.
         else if (position[0] == 1){
+            //We update the position of target.
+            target.position[0] = 4;
+            target.position[2] = board.playerTwoBanished.size();
             board.playerTwoBanished.push_back(target);
             removeCard(original, player, board);
         }
@@ -129,20 +146,27 @@ void destroy(GwentCard &target, GwentPlayer &player, GwentBoard &board){
     //This is similiar to the banish mechanic, but can only go from field to grave.
     std::vector<size_t> position = target.position;
 
-    //NOTE: HANDLE POSITION UPDATING PROPERLY AS DONE WITH GWENTCARD ORIGINAL IN BANISH FUNCTION.
-
     //When a card is banished / destroyed / discard, its power is reset.
-    target.currentPower = target.basePower;
+    target.resetToBaseCopy();
+    GwentCard copy = target;
 
-    //To which player's banished zone depends upon where it was banished.
+    //To which player's graveyard zone depends upon where it was killed.
     if (target.position[3] == 1){
+        //We update the position of target.
+        target.position[0] = 1;
+        target.position[2] = board.playerOneGraveyard.size();
+        target.position[3] = player.id;
         board.playerOneGraveyard.push_back(target);
     }
     else{
+        //We update the position of target.
+        target.position[0] = 1;
+        target.position[2] = board.playerTwoGraveyard.size();
+        target.position[3] = player.id;
         board.playerTwoGraveyard.push_back(target);
     }
     //We now remove the card from where it was originally.
-    removeCard(target, player, board);
+    removeCard(copy, player, board);
 }
 
 //Discard the card to graveyard from hand.  Takes the index in hand and uses that information to send to the graveyard.
@@ -156,17 +180,32 @@ void discard(GwentCard &target, GwentPlayer &player, GwentBoard &board){
     //NOTE: HANDLE POSITION UPDATING PROPERLY AS DONE WITH GWENTCARD ORIGINAL IN BANISH FUNCTION.
 
     //When a card is banished / destroyed / discard, its power is reset.
-    target.currentPower = target.basePower;
+    target.resetToBaseCopy();
+    GwentCard copy = target;
 
-    //To which player's banished zone depends upon where it was banished.
+    //Note that position is passed in the form of a 3d size_t var.
+    //First number is board / graveyard / hand / deck respectively, 0 1 2 3, 4 for banished.
+    //Second number is row number (only relevant for board).  Melee, ranged, siege is 0 1 2.
+    //Third number is index in the vector / deque.
+    //Fourth number is which player's side it is on, same as gwentPlayer.id (1 or 2).
+
+    //To which player's grave zone depends upon where it was banished.
     if (target.position[3] == 1){
+        //We update the position of target.
+        target.position[0] = 1;
+        target.position[2] = board.playerOneGraveyard.size();
+        target.position[3] = player.id;
         board.playerOneGraveyard.push_back(target);
     }
     else{
+        //We update the position of target.
+        target.position[0] = 1;
+        target.position[2] = board.playerOneGraveyard.size();
+        target.position[3] = player.id;
         board.playerTwoGraveyard.push_back(target);
     }
     //We now remove the card from where it was originally.
-    removeCard(target, player, board);
+    removeCard(copy, player, board);
 }
 
 //While draw is a member function of GwentPlayer, it is also a mechanic from cards such as spies.
