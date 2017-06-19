@@ -9,6 +9,7 @@ GwentCard::GwentCard(QString name, QString faction, int basePower, QString type,
     this->rank = rank;
     this->loyalty = loyalty;
     this->baseArmor = baseArmor;
+    this->currentArmor = baseArmor;
 }
 
 

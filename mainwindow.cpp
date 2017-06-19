@@ -24,7 +24,8 @@ void MainWindow::displayRow(std::vector<GwentCard> cards, QTextBrowser &text){
     QString temp;
     for (size_t i = 0; i < cards.size(); i++){
         temp += cards[i].name;
-        temp += ", ";
+        if (i+1 != cards.size())
+            temp += ", ";
     }
     text.setText(temp);
 }
@@ -34,10 +35,14 @@ void MainWindow::displayRow(std::vector<GwentCard> cards, QTextBrowser &text, QL
     int sumPower = 0;
     QString temp;
     for (size_t i = 0; i < cards.size(); i++){
-        temp += cards[i].name;
-        temp += ", ";
+        temp += "[" + cards[i].name + " " + QString::number(cards[i].currentPower) + "/" + QString::number(cards[i].basePower);
+        if (cards[i].currentArmor != 0){
+            temp += " " + QString::number(cards[i].currentArmor) + " Armor";
+        }
+        temp += "]";
+        if (i+1 != cards.size())
+            temp += ", ";
         sumPower += cards[i].currentPower;
-        qDebug() << QString::number(sumPower);
     }
     text.setText(temp);
     label.setText(QString::number(sumPower));
@@ -67,7 +72,7 @@ void MainWindow::on_pushButton_clicked(){
         game.playerTwo.deck.push_back(bear);
     }
     //You've never dueled like this before, Ben Brode Jr.
-    GwentCard exodia("Exodia", "Ofieri", 25, "s", "Gold", "L", 0);
+    GwentCard exodia("Exodia", "Ofieri", 25, "s", "Gold", "L", 10);
     for (int i = 0; i < 25; i++){
         game.playerOne.deck.push_back(exodia);
         game.playerTwo.deck.push_back(exodia);
@@ -86,6 +91,7 @@ void MainWindow::on_pushButton_clicked(){
     testPosition.push_back(0);
     testPosition.push_back(1);
     play(game.playerOne.hand[0], game.playerOne, game.board, testPosition);
+    boost(game.board.playerOneRanged[0], 10);
 
     //Display to the ui.
     displayGame(game);
