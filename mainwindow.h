@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 
+#include "gwentGame.h"
+
 namespace Ui {
 class MainWindow;
 }
@@ -10,18 +12,24 @@ class MainWindow;
 class MainWindow : public QMainWindow{
     Q_OBJECT
 
-public:
-    explicit MainWindow(QWidget *parent = 0);
-    ~MainWindow();
+    public:
+        explicit MainWindow(QWidget *parent = 0);
+        ~MainWindow();
 
-private slots:
+        //This allows us to display a game to our skilly window.
+        //Calling it game might interfere with global test variable game.
+        void displayGame(const GwentGame gameToDisplay);
 
-    void on_debugPushButton_clicked();
+    private slots:
+    /*
+        void on_debugPushButton_clicked();
 
-    void on_pushButton_clicked();
+        void on_pushButton_clicked();
+    */
+        void on_pushButton_clicked();
 
-private:
-    Ui::MainWindow *ui;
+    private:
+        Ui::MainWindow *ui;
 };
 
 #endif // MAINWINDOW_H

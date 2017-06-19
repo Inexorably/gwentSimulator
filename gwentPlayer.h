@@ -5,6 +5,10 @@
 #include <vector>
 #include <deque>
 
+#include <random>       // std::default_random_engine
+#include <chrono>       // std::chrono::system_clock
+#include <algorithm>    // std::shuffle
+
 
 class GwentPlayer{
 public:

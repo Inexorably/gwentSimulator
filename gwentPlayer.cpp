@@ -23,3 +23,8 @@ void GwentPlayer::draw(){
 int GwentPlayer::getPointTotal(){
     return pointTotal;
 }
+
+void GwentPlayer::shuffleDeck(){
+    unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
+    shuffle (this->deck.begin(), this->deck.end(), std::default_random_engine(seed));
+}

@@ -1,6 +1,21 @@
 #include "gwentMechanics.h"
 #include <QDebug>
 
+/*********************************************************/
+
+//Random engine
+#include <random>
+
+std::random_device rd;     // only used once to initialise (seed) engine
+std::mt19937 rng(rd());    // random-number engine used (Mersenne-Twister in this case)
+
+int randomInt(int min, int max){
+    std::uniform_int_distribution<int> uni(min, max); // guaranteed unbiased
+    return uni(rng);
+}
+
+/*********************************************************/
+
 //Function implementations.
 
 //Adds a tag to the target card (such as resilient, regressing, etc).
@@ -405,6 +420,16 @@ void mulligan(const size_t index, GwentPlayer &player){
     return;
 }
 
+//Play a card from hand.
+void play(GwentCard &target, GwentPlayer &player, GwentBoard &board, std::vector<size_t> position){
+    //We can code this is spawning a copy and removing from the deck using the remove function.
+    //The reason we make a copy is that in the spawn function the position member of the target card will be modified (as it should be).  We need this position for the remove function too.
+    GwentCard copy = target;
+    spawn(copy, position, board);
+    //We now remove the card from the deck.
+    removeCard(target, player, board);
+}
+
 //Promote: convert the target to gold until the end of the game.
 void promote(GwentCard &target){
     target.rank = 'g';
@@ -498,6 +523,12 @@ void resurrect(GwentCard &target, GwentPlayer &player, GwentBoard &board, std::v
 //Reveal the target.
 void reveal(GwentCard &target){
     target.revealed = true;
+}
+
+//Shuffle the player's deck.
+void shuffleDeck(GwentPlayer &player){
+    unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
+    shuffle (player.deck.begin(), player.deck.end(), std::default_random_engine(seed));
 }
 
 //Spawn the target at the position.  Adds the card to the game and plays it.  Note that not all of position is needed (it can only be on the board, so need side, row number, and index, but we take the normal size for consistency.
