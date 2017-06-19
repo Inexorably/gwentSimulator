@@ -9,6 +9,11 @@
 
 #include "gwentGame.h"
 
+//For draw and stuff.
+#include <random>       // std::default_random_engine
+#include <chrono>       // std::chrono::system_clock
+#include <algorithm>    // std::shuffle
+
 //Define global strings such as const char GOLD = 'g' here.  Tags also go here.
 const QString TAG_RESILIENT = "Resilient";
 
@@ -21,6 +26,8 @@ const QString TAG_RESILIENT = "Resilient";
  *
  *
 */
+
+int randomInt(int min, int max);
 
 //Adds a tag to the target card (such as resilient, regressing, etc).
 void addTag(GwentCard &target, const QString tag);
@@ -77,6 +84,9 @@ std::vector<GwentCard*> lowest(GwentBoard board);
 //Mulligan the card at the target position (in hand).
 void mulligan(const size_t index, GwentPlayer &player);
 
+//Play a card from hand.
+void play(GwentCard &target, GwentPlayer &player, GwentBoard &board, std::vector<size_t> position);
+
 //Promote: convert the target to gold until the end of the round.
 void promote(GwentCard &target);
 
@@ -91,6 +101,9 @@ void resurrect(GwentCard &target, GwentPlayer &player, GwentBoard &board, std::v
 
 //Reveal the target.
 void reveal(GwentCard &target);
+
+//Shuffle the player's deck.
+void shuffleDeck(GwentPlayer &player);
 
 //Spawn the target at the position.  Adds the card to the game and plays it.  Note that not all of position is needed (it can only be on the board, so need side, row number, and index, but we take the normal size for consistency.
 void spawn(GwentCard &target, std::vector<size_t> position, GwentBoard &board);

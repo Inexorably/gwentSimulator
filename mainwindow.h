@@ -3,6 +3,13 @@
 
 #include <QMainWindow>
 
+#include "gwentGame.h"
+#include "gwentCard.h"
+#include "gwentMechanics.h"
+
+#include <QTextBrowser>
+#include <QLabel>
+
 namespace Ui {
 class MainWindow;
 }
@@ -10,18 +17,29 @@ class MainWindow;
 class MainWindow : public QMainWindow{
     Q_OBJECT
 
-public:
-    explicit MainWindow(QWidget *parent = 0);
-    ~MainWindow();
+    public:
+        explicit MainWindow(QWidget *parent = 0);
+        ~MainWindow();
 
-private slots:
+        //This allows us to display a game to our skilly window.
+        //Calling it game might interfere with global test variable game.
+        void displayGame(const GwentGame gameToDisplay);
 
-    void on_debugPushButton_clicked();
+        //Called in display game, writes the cards to a text browser, good for hand and stuff.  Does not write total power.
+        void displayRow(std::vector<GwentCard> cards, QTextBrowser &text);
+        //This overload provides label support and should be used for writing to rows where sum power should be displayed.
+        void displayRow(std::vector<GwentCard> cards, QTextBrowser &text, QLabel &label);
 
-    void on_pushButton_clicked();
+    private slots:
+    /*
+        void on_debugPushButton_clicked();
 
-private:
-    Ui::MainWindow *ui;
+        void on_pushButton_clicked();
+    */
+        void on_pushButton_clicked();
+
+    private:
+        Ui::MainWindow *ui;
 };
 
 #endif // MAINWINDOW_H

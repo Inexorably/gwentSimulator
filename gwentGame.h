@@ -3,6 +3,7 @@
 
 #include "gwentPlayer.h"
 #include "gwentBoard.h"
+#include "gwentMechanics.h"
 
 class GwentGame{
 public:
@@ -23,6 +24,12 @@ public:
     int turnPlayerId;
     int turnNumber;
 
+    //This will occur at the beginning of the game, and draw cards + intialize things like position member for cards and such.
+    void startGame();
+
+    //Called in startGame.  Will set the positions for all cards in the game correctly.  Can be expensive.
+    void updateCardPositions();
+
 private:
 
 
@@ -30,6 +37,8 @@ private:
     //The round number (1, 2, 3).
 
     int roundNumber;
+
+
 
 
     //Ends the round.  Moves all cards to grave except for resilient.  Will trigger death effects, creates an event for round end.  If the game is not over, calls startRound.
