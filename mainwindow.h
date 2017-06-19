@@ -4,6 +4,11 @@
 #include <QMainWindow>
 
 #include "gwentGame.h"
+#include "gwentCard.h"
+#include "gwentMechanics.h"
+
+#include <QTextBrowser>
+#include <QLabel>
 
 namespace Ui {
 class MainWindow;
@@ -19,6 +24,11 @@ class MainWindow : public QMainWindow{
         //This allows us to display a game to our skilly window.
         //Calling it game might interfere with global test variable game.
         void displayGame(const GwentGame gameToDisplay);
+
+        //Called in display game, writes the cards to a text browser, good for hand and stuff.  Does not write total power.
+        void displayRow(std::vector<GwentCard> cards, QTextBrowser &text);
+        //This overload provides label support and should be used for writing to rows where sum power should be displayed.
+        void displayRow(std::vector<GwentCard> cards, QTextBrowser &text, QLabel &label);
 
     private slots:
     /*

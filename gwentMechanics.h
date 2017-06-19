@@ -27,6 +27,8 @@ const QString TAG_RESILIENT = "Resilient";
  *
 */
 
+int randomInt(int min, int max);
+
 //Adds a tag to the target card (such as resilient, regressing, etc).
 void addTag(GwentCard &target, const QString tag);
 
