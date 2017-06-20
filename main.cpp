@@ -1,6 +1,5 @@
 #include "mainwindow.h"
 #include <QApplication>
-#include "gwentUtilities.h"
 
 int main(int argc, char *argv[]){
     QApplication a(argc, argv);
