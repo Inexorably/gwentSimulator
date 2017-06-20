@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "gwentUtilities.h"
+#include "globals.h"
 #include <map>
 #include <deque>
 #include <QString>
@@ -189,6 +190,6 @@ void MainWindow::on_pushButton_clicked(){
 //Here.
 void MainWindow::on_debugButton_clicked(){
     std::map<QString,GwentCard> cardLibrary = loadCards();
-    createDeck("C:/GwentSimulator/gwentSimulator/deck_1.csv", &cardLibrary);
+    createDeck(DECK_PATH, &cardLibrary);
     lookUpCard("Adrenaline Rush", &cardLibrary);
 }

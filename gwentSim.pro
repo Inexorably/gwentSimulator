@@ -26,6 +26,7 @@ HEADERS  += mainwindow.h \
     gwentPlayer.h \
     gwentCard.h \
     gwentBoard.h \
-    gwentUtilities.h
+    gwentUtilities.h \
+    globals.h
 
 FORMS    += mainwindow.ui

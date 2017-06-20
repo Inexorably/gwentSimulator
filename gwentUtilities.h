@@ -5,10 +5,11 @@
 #include <fstream>
 #include <sstream>
 #include <string>
+#include "globals.h"
 
 std::map<QString,GwentCard> loadCards(){
     //hard code file name, retrive cards
-	
+
     //Format: Adrenaline Rush,Neutral,0,Event,Bronze,
     //parse the csv file
     QString name;
@@ -19,7 +20,7 @@ std::map<QString,GwentCard> loadCards(){
     QString loyalty;
 
     int cellNum = 0;
-    std::ifstream file("D:/GwentSimulator/gwentSimulator/cards.csv");
+    std::ifstream file(CARD_LIBRARY_PATH);
     std::map<QString,GwentCard> cardLibrary;
     std::string line;
     while(std::getline(file, line, '\r'))
@@ -107,4 +108,3 @@ std::deque<GwentCard> createDeck(std::string fileName, std::map<QString,GwentCar
 void playGame(){
 
 }
-
