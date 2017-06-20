@@ -20,11 +20,14 @@ std::map<QString,GwentCard> loadCards(){
     QString loyalty;
 
     int cellNum = 0;
-    std::ifstream file(CARD_LIBRARY_PATH);
+    std::ifstream file(CARD_LIBRARY_PATH, std::ios::binary);
     std::map<QString,GwentCard> cardLibrary;
     std::string line;
-    while(std::getline(file, line, '\r'))
+    //NOTE: Windows line ending \r\n
+    //This gets the file
+    while(std::getline(file, line))
     {
+        line.erase(std::remove(line.begin(), line.end(), '\r'), line.end());
         std::stringstream  lineStream(line);
         std::string        cell;
         while(std::getline(lineStream, cell, ',')){
@@ -75,7 +78,7 @@ std::deque<GwentCard> createDeck(std::string fileName, std::map<QString,GwentCar
     std::ifstream file(fileName);
     std::deque<GwentCard> deck;
     std::string line;
-    while(std::getline(file, line, '\r'))
+    while(std::getline(file, line, '\n'))
     {
         std::stringstream  lineStream(line);
         std::string        cell;
@@ -94,8 +97,8 @@ std::deque<GwentCard> createDeck(std::string fileName, std::map<QString,GwentCar
         }
 
         //Make a card
+        GwentCard gc = lookUpCard(name, cardLibrary);
         for (int i = 0; i < number; i++){
-            GwentCard gc = lookUpCard(name, cardLibrary);
             deck.push_back(gc);
         }
 

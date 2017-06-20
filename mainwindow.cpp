@@ -70,19 +70,14 @@ void MainWindow::displayGame(const GwentGame gameToDisplay){
 void MainWindow::on_pushButton_clicked(){
     //Create a test game.
     GwentGame game;
+    //first thing we will need to do is load the card library
+    std::map<QString,GwentCard> cardLibrary = loadCards();
 
     //Give some players temporary decks.
-    GwentCard bear("Savage Bear", "Skellige", 6, "m", "Bronze", "L", 0);
-    for (int i = 0; i < 20; i++){
-        game.playerOne.deck.push_back(bear);
-        game.playerTwo.deck.push_back(bear);
-    }
     //You've never dueled like this before, Ben Brode Jr.
-    GwentCard exodia("Exodia", "Ofieri", 25, "s", "Gold", "L", 10);
-    for (int i = 0; i < 25; i++){
-        game.playerOne.deck.push_back(exodia);
-        game.playerTwo.deck.push_back(exodia);
-    }
+    //Give some players temporary decks.
+    game.playerOne.deck = createDeck(DECK_PATH, &cardLibrary);
+    game.playerTwo.deck = createDeck(DECK_PATH, &cardLibrary);
     ui->debugBrowser->append("Test players initialized.");
 
     //The players have now been created.  We now cycle through the deck / hand post mulligan (not implemented) and assign the positions to the cards.  The turn player is also decided randomly.
