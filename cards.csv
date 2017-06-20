@@ -1,1 +1,306 @@
-Adrenaline Rush,Neutral,0,Event,Bronze,BAelirenn,Scoia'tael,6,Ranged,Silver,LAeromancy,Neutral,0,Event,Silver,BAgla•s,Scoia'tael,10,SiegeMeleeRanged,Gold,LAlba Pikeman,Nilfgaard,5,MeleeRangedSiege,Bronze,LAlba Spearmen,Nilfgaard,8,Ranged,Bronze,LAlbrich,Nilfgaard,9,Siege,Silver,LAlchemist,Nilfgaard,7,Ranged,Bronze,LAlzur's DoubleÐCross,Neutral,0,Event,Silver,BAlzur's Thunder,Neutral,0,Event,Bronze,BAmbassador,Nilfgaard,2,MeleeRangedSiege,Bronze,DAncient Foglet,Monsters,6,RangedMeleeSiege,Bronze,LArachas,Monsters,3,Ranged,Bronze,LArachas Behemoth,Monsters,6,Siege,Bronze,LArachas Venom,Neutral,0,Event,Bronze,BArchgriffin,Monsters,7,RangedMeleeSiege,Bronze,LAretuza Adept,Northern Realms,4,Siege,Bronze,LAssassination,Nilfgaard,0,Event,Gold,BAssire var Anahid,Nilfgaard,10,Siege,Silver,LAuckes,Nilfgaard,4,Ranged,Silver,L
+Adrenaline Rush,Neutral,0,Event,Bronze,S
+Aelirenn,Scoia'tael,6,Ranged,Silver,L
+Aeromancy,Neutral,0,Event,Silver,
+Aglais,Scoia'tael,10,SiegeMeleeRanged,Gold,L
+Alba Pikeman,Nilfgaard,5,MeleeRangedSiege,Bronze,L
+Alba Spearmen,Nilfgaard,8,Ranged,Bronze,L
+Albrich,Nilfgaard,9,Siege,Silver,L
+Alchemist,Nilfgaard,7,Ranged,Bronze,L
+Alzur's DoubleÐCross,Neutral,0,Event,Silver,
+Alzur's Thunder,Neutral,0,Event,Bronze,
+Ambassador,Nilfgaard,2,MeleeRangedSiege,Bronze,D
+Ancient Foglet,Monsters,6,RangedMeleeSiege,Bronze,L
+Arachas,Monsters,3,Ranged,Bronze,L
+Arachas Behemoth,Monsters,6,Siege,Bronze,L
+Arachas Venom,Neutral,0,Event,Bronze,
+Archgriffin,Monsters,7,RangedMeleeSiege,Bronze,L
+Aretuza Adept,Northern Realms,4,Siege,Bronze,L
+Assassination,Nilfgaard,0,Event,Gold,
+Assire var Anahid,Nilfgaard,10,Siege,Silver,L
+Auckes,Nilfgaard,4,Ranged,Silver,L
+Avallac'h,Neutral,10,SiegeMeleeRanged,Gold,L
+Ballista,Northern Realms,5,RangedMeleeSiege,Bronze,L
+Barclay Els,Scoia'tael,2,Siege,Silver,L
+Bekker's Twisted Mirror,Neutral,0,Event,Silver,
+Berserker Marauder,Skellige,6,Melee,Bronze,L
+Birna Bran,Skellige,5,RangedMeleeSiege,Gold,D
+Biting Frost,Neutral,0,EventMeleeRangedSiege,Bronze,D
+Black Infantry Arbalest,Nilfgaard,5,Ranged,Bronze,L
+Bloodcurdling Roar,Neutral,0,Event,Bronze,
+Bloody Baron,Northern Realms,6,SiegeMeleeRanged,Gold,L
+Blue Mountain Commando,Scoia'tael,3,SiegeMeleeRanged,Bronze,L
+Blue Stripes Commando,Northern Realms,3,MeleeRangedSiege,Bronze,L
+Blue Stripes Scout,Northern Realms,6,RangedMeleeSiege,Bronze,L
+Blueboy Lugos,Skellige,6,Melee,Silver,L
+Botchling,Northern Realms,5,Melee,Silver,L
+Braenn,Scoia'tael,5,Ranged,Silver,L
+Brouver Hoog,Scoia'tael,4,Event,Leader,
+Cahir,Nilfgaard,4,MeleeRangedSiege,Gold,L
+Cantarella,Nilfgaard,10,RangedMeleeSiege,Silver,D
+Caranthir,Monsters,5,MeleeRangedSiege,Gold,L
+Caretaker,Monsters,4,SiegeMeleeRanged,Gold,L
+Ceallach,Nilfgaard,8,Melee,Silver,L
+Celaeno Harpy,Monsters,4,RangedMeleeSiege,Bronze,L
+Cerys,Skellige,6,MeleeRangedSiege,Gold,L
+Champion of Champions,Skellige,5,MeleeRangedSiege,Silver,L
+Chort,Monsters,6,MeleeRangedSiege,Bronze,L
+Ciaran,Scoia'tael,8,MeleeRangedSiege,Silver,L
+Ciri,Neutral,5,MeleeRangedSiege,Gold,L
+Ciri: Dash,Neutral,9,RangedMeleeSiege,Gold,L
+Clan an Craite Raider,Skellige,4,Melee,Bronze,L
+Clan an Craite Warcrier,Skellige,7,MeleeRangedSiege,Bronze,L
+Clan an Craite Warrior,Skellige,9,Melee,Bronze,L
+Clan Brokvar Archer,Skellige,5,Siege,Bronze,L
+Clan Brokvar Hunter,Skellige,5,RangedMeleeSiege,Bronze,L
+Clan Dimun Pirate,Skellige,6,RangedMeleeSiege,Bronze,L
+Clan Dimun Pirate Captain,Skellige,5,RangedMeleeSiege,Bronze,L
+Clan Drummond Shieldmaiden,Skellige,3,Ranged,Bronze,L
+Clan Heymaey Skald,Skellige,4,MeleeRangedSiege,Bronze,L
+Clan Tordarroch Armorsmith,Skellige,5,SiegeMeleeRanged,Bronze,L
+Clan Tordarroch Shieldsmith,Skellige,5,Siege,Bronze,L
+Clan Tuirseach Axeman,Skellige,2,RangedMeleeSiege,Bronze,L
+Clan Tuirseach Skirmishers,Skellige,6,Melee,Bronze,L
+Cleaver,Neutral,6,Melee,Silver,L
+Combat Engineer,Nilfgaard,2,Siege,Bronze,L
+Commander's Horn,Neutral,0,Event,Silver,
+Commando Neophyte,Scoia'tael,7,Melee,Bronze,L
+Coral,Skellige,5,RangedSiegeMelee,Gold,L
+Crach an Craite,Skellige,4,Event,Leader,
+Crone: Brewess,Monsters,8,Siege,Silver,L
+Crone: Weavess,Monsters,6,Siege,Silver,L
+Crone: Whispess,Monsters,6,Siege,Silver,L
+Cynthia,Nilfgaard,4,Ranged,Silver,L
+Cyprian Wiley,Neutral,7,Siege,Silver,L
+Daerlan Foot Soldiers,Nilfgaard,4,Melee,Bronze,L
+Dagon,Monsters,6,Event,Leader,
+Dandelion,Northern Realms,8,MeleeRangedSiege,Gold,L
+Decoy,Neutral,0,Event,Silver,
+Dennis Cranmer,Scoia'tael,8,Melee,Silver,L
+Dethmold,Northern Realms,3,Siege,Silver,L
+Dijkstra,Northern Realms,3,SiegeMeleeRanged,Gold,D
+Dimeritium Bomb,Neutral,0,Event,Silver,
+Dimeritium Shackles,Neutral,0,Event,Bronze,
+Djenge Frett,Skellige,8,RangedMeleeSiege,Silver,L
+Dol Blathanna Archer,Scoia'tael,5,Ranged,Bronze,L
+Dol Blathanna Marksman,Scoia'tael,6,Ranged,Bronze,L
+Dol Blathanna Protector,Scoia'tael,2,MeleeRangedSiege,Bronze,L
+Dol Blathanna Trapper,Scoia'tael,5,Ranged,Bronze,L
+Donar an Hindar,Skellige,6,Ranged,Silver,L
+Draig Bon–Dhu,Skellige,4,Siege,Silver,L
+Draug,Monsters,7,MeleeRangedSiege,Gold,L
+Drought,Neutral,0,Event,Gold,
+Drowner,Monsters,7,SiegeMeleeRanged,Bronze,L
+Dudu,Neutral,1,RangedMeleeSiege,Silver,L
+Dun Banner Heavy Cavalry,Northern Realms,3,Siege,Bronze,L
+Dun Banner Light Cavalry,Northern Realms,4,Ranged,Bronze,L
+Dwarven Mercenary,Scoia'tael,5,RangedMeleeSiege,Bronze,L
+Dwarven Skirmisher,Scoia'tael,5,Siege,Bronze,L
+Earth Elemental,Monsters,6,Melee,Bronze,L
+Eithné,Scoia'tael,5,Event,Leader,
+Ekimmara,Monsters,3,MeleeRangedSiege,Bronze,L
+Ele'yas,Scoia'tael,9,Melee,Silver,L
+Elven Mercenary,Scoia'tael,2,MeleeRangedSiege,Bronze,D
+Elven Wardancer,Scoia'tael,3,Melee,Bronze,L
+Emhyr var Emreis,Nilfgaard,4,Event,Leader,
+Emissary,Nilfgaard,2,RangedMeleeSiege,Bronze,D
+Epidemic,Neutral,0,Event,Bronze,
+Eredin,Monsters,5,Event,Leader,
+Ermion,Skellige,6,SiegeMeleeRanged,Gold,L
+Eskel,Neutral,5,Melee,Silver,L
+Fake Ciri,Nilfgaard,6,SiegeMeleeRanged,Silver,B
+Field Medic,Northern Realms,3,Siege,Bronze,L
+Fiend,Monsters,5,Melee,Silver,L
+Fire Elemental,Monsters,6,Siege,Silver,L
+Fire Scorpion,Nilfgaard,6,Siege,Bronze,L
+First Light,Neutral,0,Event,Bronze,
+Foglet,Monsters,2,RangedMeleeSiege,Bronze,L
+Foltest,Northern Realms,5,Event,Leader,
+Francesca,Scoia'tael,6,Event,Leader,
+Frightener,Monsters,10,SiegeMeleeRanged,Silver,D
+Fringilla Vigo,Nilfgaard,6,SiegeMeleeRanged,Silver,B
+Gaunter O'Dimm,Neutral,5,SiegeMeleeRanged,Gold,L
+Ge'els,Monsters,2,MeleeRangedSiege,Gold,L
+Geralt,Neutral,10,MeleeRangedSiege,Gold,L
+Geralt: Aard,Neutral,8,RangedMeleeSiege,Gold,L
+Geralt: Igni,Neutral,4,MeleeRangedSiege,Gold,L
+Ghoul,Monsters,4,Melee,Bronze,L
+Giant Toad,Monsters,5,SiegeMeleeRanged,Silver,L
+Grave Hag,Monsters,2,RangedMeleeSiege,Silver,L
+Gremist,Skellige,3,Siege,Silver,L
+Griffin,Monsters,8,Siege,Bronze,L
+Harald the Cripple,Skellige,3,Event,Leader,
+Harpy,Monsters,3,RangedMeleeSiege,Bronze,L
+Hawker Healer,Scoia'tael,4,RangedSiegeMelee,Bronze,L
+Hawker Smuggler,Scoia'tael,4,Ranged,Bronze,L
+Hawker Support,Scoia'tael,6,Siege,Bronze,L
+Henselt,Northern Realms,2,Event,Leader,
+Hjalmar,Skellige,15,MeleeRangedSiege,Gold,L
+Holger Blackhand,Skellige,5,Siege,Silver,L
+Ice Giant,Monsters,5,Siege,Bronze,L
+Ida Emean,Scoia'tael,4,Siege,Silver,L
+Imlerith,Monsters,8,MeleeRangedSiege,Gold,L
+Immune Boost,Neutral,0,Event,Bronze,
+Impenetrable Fog,Neutral,0,EventMeleeRangedSiege,Bronze,D
+Impera Brigade,Nilfgaard,6,Melee,Bronze,L
+Impera Enforcers,Nilfgaard,8,Ranged,Bronze,L
+Imperial Golem,Nilfgaard,2,Melee,Bronze,L
+Iorveth,Scoia'tael,6,RangedMeleeSiege,Gold,L
+Iris,Neutral,3,SiegeMeleeRanged,Silver,D
+Isengrim,Scoia'tael,7,RangedMeleeSiege,Gold,L
+Ithlinne,Scoia'tael,4,RangedMeleeSiege,Gold,D
+Joachim de Wett,Nilfgaard,5,MeleeRangedSiege,Silver,D
+John Calveit,Nilfgaard,3,Event,Leader,
+John Natalis,Northern Realms,8,MeleeRangedSiege,Gold,L
+Johnny,Neutral,7,Siege,Silver,L
+Jotunn,Monsters,6,MeleeRangedSiege,Silver,L
+Jutta an Dimun,Skellige,12,Melee,Silver,L
+Kaedweni Sergeant,Northern Realms,3,MeleeRangedSiege,Bronze,L
+Kaedweni Siege Platform,Northern Realms,2,RangedMeleeSiege,Bronze,L
+Kaedweni Siege Support,Northern Realms,4,SiegeMeleeRanged,Bronze,L
+Kambi,Skellige,1,RangedMeleeSiege,Gold,D
+Katakan,Monsters,5,Melee,Silver,L
+Kayran,Monsters,8,SiegeMeleeRanged,Gold,L
+Keira Metz,Northern Realms,5,MeleeRangedSiege,Gold,L
+King Bran,Skellige,4,Event,Leader,
+King of Beggars,Neutral,5,Ranged,Silver,L
+Lacerate,Neutral,0,MeleeRangedSiegeEvent,Bronze,B
+Lambert,Neutral,5,Melee,Silver,L
+Leo Bonhart,Nilfgaard,6,MeleeRangedSiege,Gold,L
+Letho of Gulet,Nilfgaard,7,MeleeRangedSiege,Gold,B
+Light Longship,Skellige,5,SiegeMeleeRanged,Bronze,L
+Lubberkin,Northern Realms,5,Ranged,Silver,L
+Madman Lugos,Skellige,7,MeleeRangedSiege,Gold,L
+Mahakam Defender,Scoia'tael,5,Melee,Bronze,L
+Mahakam Guard,Scoia'tael,5,Melee,Bronze,L
+Malena,Scoia'tael,4,MeleeRangedSiege,Silver,B
+Mangonel,Nilfgaard,6,Siege,Bronze,L
+Manticore,Monsters,9,Siege,Silver,L
+Manticore Venom,Neutral,0,Event,Silver,
+Marching Orders,Neutral,0,Event,Silver,
+Mardroeme,Neutral,0,Event,Bronze,
+Margarita Laux–Antille,Northern Realms,4,Siege,Silver,L
+Menno Coehoorn,Nilfgaard,8,MeleeRangedSiege,Gold,L
+Merigold's Hailstorm,Neutral,0,EventMeleeRangedSiege,Silver,B
+Milva,Scoia'tael,9,SiegeMeleeRanged,Gold,L
+Monster Nest,Monsters,0,Event,Silver,
+Morenn,Scoia'tael,6,RangedSiegeMelee,Silver,L
+Morkvarg,Skellige,8,Melee,Silver,L
+Morvran Voorhis,Nilfgaard,6,Event,Leader,
+Myrgtabrakke,Neutral,5,Ranged,Silver,L
+Nature's Gift,Scoia'tael,0,Event,Silver,
+Nauzicaa Brigade,Nilfgaard,5,Ranged,Bronze,L
+Nauzicaa Standard Bearer,Nilfgaard,4,MeleeRangedSiege,Bronze,L
+Necromancy,Neutral,0,Event,Silver,
+Nekker,Monsters,3,Melee,Bronze,L
+Nekker Warrior,Monsters,5,Melee,Bronze,L
+Nenneke,Northern Realms,8,Siege,Silver,L
+Nilfgaardian Knight,Nilfgaard,10,Melee,Bronze,L
+Nithral,Monsters,4,MeleeRangedSiege,Silver,L
+Ocvist,Neutral,6,Siege,Silver,L
+Odrin,Northern Realms,5,MeleeRangedSiege,Silver,L
+Old Speartip: Asleep,Monsters,5,MeleeRangedSiege,Gold,L
+Olgierd,Neutral,7,Melee,Silver,L
+Operator,Neutral,9,Ranged,Silver,L
+Overdose,Neutral,0,Event,Bronze,
+Pavetta,Northern Realms,7,Ranged,Silver,L
+Peter Saar Gwynleve,Nilfgaard,4,Melee,Silver,L
+Philippa Eilhart,Northern Realms,1,SiegeMeleeRanged,Gold,L
+Priestess of Freya,Skellige,1,Siege,Bronze,L
+Prince Stennis,Northern Realms,5,MeleeRangedSiege,Silver,L
+Priscilla,Northern Realms,5,SiegeMeleeRanged,Gold,L
+Prize-Winning Cow,Neutral,2,MeleeRangedSiege,Silver,L
+Queensguard,Skellige,4,Melee,Bronze,L
+Quen Sign,Neutral,0,Event,Bronze,
+Radovid,Northern Realms,4,Event,Leader,
+Ragh Nar Roog,Neutral,0,EventMeleeRangedSiege,Gold,
+Raging Berserker,Skellige,6,MeleeRangedSiege,Bronze,L
+Rainfarn,Nilfgaard,4,MeleeRangedSiege,Gold,L
+Reaver Hunter,Northern Realms,4,RangedMeleeSiege,Bronze,L
+Reaver Scout,Northern Realms,2,Ranged,Bronze,L
+Redanian Elite,Northern Realms,5,SiegeMeleeRanged,Bronze,L
+Redanian Knight,Northern Realms,6,Melee,Bronze,L
+Redanian Knight-Elect,Northern Realms,5,MeleeRangedSiege,Bronze,L
+Regis,Neutral,8,MeleeRangedSiege,Gold,L
+Regis: Higher Vampire,Neutral,6,MeleeRangedSiege,Gold,L
+Reinforced Ballista,Northern Realms,6,RangedMeleeSiege,Bronze,L
+Reinforced Siege Tower,Northern Realms,6,SiegeMeleeRanged,Bronze,L
+Reinforced Trebuchet,Northern Realms,5,Siege,Bronze,L
+Reinforcement,Northern Realms,0,Event,Silver,
+Renew,Neutral,0,Event,Gold,
+Restore,Skellige,0,Event,Silver,
+Roach,Neutral,4,MeleeRangedSiege,Silver,L
+Rot Tosser,Nilfgaard,6,Siege,Bronze,L
+Royal Decree,Neutral,0,Event,Gold,
+Sabrina Glevissig,Northern Realms,3,RangedMeleeSiege,Silver,D
+Saesenthessis,Scoia'tael,7,MeleeRangedSiege,Gold,L
+Sarah,Neutral,8,Siege,Silver,L
+Saskia,Scoia'tael,7,MeleeRangedSiege,Gold,L
+Savage Bear,Skellige,6,Melee,Bronze,L
+Schirrú,Scoia'tael,10,MeleeRangedSiege,Gold,L
+Scorch,Neutral,0,Event,Silver,
+Serrit,Nilfgaard,7,Melee,Silver,L
+Shadow,Monsters,7,MeleeRangedSiege,Silver,L
+Shani,Northern Realms,3,RangedMeleeSiege,Gold,L
+Sheldon Skaggs,Scoia'tael,8,MeleeRangedSiege,Silver,L
+Sigrdrifa,Skellige,3,Siege,Silver,L
+Síle de Tansarville,Northern Realms,6,Ranged,Silver,L
+Skellige Storm,Neutral,0,EventMeleeRangedSiege,Silver,D
+Skjall,Skellige,6,Siege,Silver,L
+Spotter,Nilfgaard,3,RangedMeleeSiege,Bronze,L
+Stammelford's Tremors,Neutral,0,Event,Bronze,
+Stefan Skellen,Nilfgaard,9,RangedMeleeSiege,Gold,L
+Succubus,Monsters,6,MeleeRangedSiege,Gold,B
+Summoning Circle,Neutral,0,Event,Silver,
+Svanrige,Skellige,6,Siege,Silver,L
+Swallow Potion,Neutral,0,Event,Bronze,
+Sweers,Nilfgaard,7,Melee,Silver,L
+Temerian Infantryman,Northern Realms,3,RangedMeleeSiege,Bronze,L
+Thaler,Northern Realms,11,SiegeMeleeRanged,Silver,D
+The Guardian,Nilfgaard,10,Melee,Silver,L
+The Last Wish,Neutral,0,Event,Silver,
+Thunderbolt Potion,Neutral,0,Event,Bronze,
+Tibor Eggebracht,Nilfgaard,8,MeleeRangedSiege,Gold,L
+Torrential Rain,Neutral,0,EventMeleeRangedSiege,Bronze,D
+Toruviel,Scoia'tael,6,MeleeRangedSiege,Silver,L
+Treason,Nilfgaard,0,Event,Silver,
+Trebuchet,Northern Realms,2,SiegeMeleeRanged,Bronze,L
+Tridam Infantryman,Northern Realms,8,Melee,Bronze,L
+Triss Merigold,Neutral,7,RangedMeleeSiege,Gold,L
+Triss: Butterfly Spell,Neutral,5,RangedMeleeSiege,Gold,L
+Trollololo,Northern Realms,8,MeleeRangedSiege,Silver,L
+Udalryk,Skellige,12,MeleeRangedSiege,Silver,D
+Unseen Elder,Monsters,5,Event,Leader,
+Vabjorn,Skellige,6,MeleeRangedSiege,Gold,L
+Vanhemar,Nilfgaard,3,Siege,Silver,L
+Vattier de Rideaux,Nilfgaard,8,RangedMeleeSiege,Gold,L
+Vernon Roche,Northern Realms,6,MeleeRangedSiege,Gold,L
+Ves,Northern Realms,7,Melee,Silver,L
+Vesemir,Neutral,7,Melee,Silver,L
+Vicovaro Medic,Nilfgaard,1,Ranged,Bronze,L
+Vicovaro Novice,Nilfgaard,1,Siege,Bronze,L
+Vilgefortz,Nilfgaard,8,SiegeMeleeRanged,Gold,L
+Villentretenmerth,Neutral,4,RangedMeleeSiege,Gold,L
+Vran Warrior,Monsters,5,RangedMeleeSiege,Bronze,L
+Vrihedd Brigade,Scoia'tael,6,MeleeRangedSiege,Bronze,L
+Vrihedd Dragoon,Scoia'tael,6,Siege,Bronze,L
+Vrihedd Officer,Scoia'tael,7,Siege,Bronze,L
+Vrihedd Sappers,Scoia'tael,7,MeleeRangedSiege,Bronze,L
+Vrihedd Vanguard,Scoia'tael,4,MeleeRangedSiege,Bronze,L
+War Longship,Skellige,6,Siege,Bronze,L
+Water Hag,Monsters,3,Siege,Silver,L
+White Frost,Neutral,0,EventMeleeRanged,Silver,D
+Wild Boar of the Sea,Skellige,6,SiegeMeleeRanged,Gold,L
+Wild Hunt Hound,Monsters,5,Melee,Bronze,L
+Wild Hunt Navigator,Monsters,3,Siege,Bronze,L
+Wild Hunt Rider,Monsters,6,MeleeRangedSiege,Bronze,L
+Wild Hunt Warrior,Monsters,5,Melee,Bronze,L
+Woodland Spirit,Monsters,5,RangedMeleeSiege,Gold,L
+Wyvern,Monsters,6,Siege,Bronze,L
+Xarthisius,Nilfgaard,10,SiegeMeleeRanged,Gold,L
+Yaevinn,Scoia'tael,12,RangedSiegeMelee,Silver,D
+Yarpen Zigrin,Scoia'tael,7,Siege,Silver,L
+Yennefer,Neutral,6,SiegeMeleeRanged,Gold,L
+Yennefer: The Conjurer,Neutral,4,SiegeMeleeRanged,Gold,L
+Zoltan Chivay,Scoia'tael,8,MeleeRangedSiege,Gold,L
+Zoltan: Animal Tamer,Neutral,7,RangedMeleeSiege,Gold,L
+Exodia,Ofieri,25,RangedMeleeSiege,Gold,L
