@@ -107,3 +107,4 @@ std::deque<GwentCard> createDeck(std::string fileName, std::map<QString,GwentCar
 void playGame(){
 
 }
+
