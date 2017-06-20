@@ -181,3 +181,7 @@ void MainWindow::on_pushButton_clicked(){
 */
 
 
+//Here.
+void MainWindow::on_debugButton_clicked(){
+
+}

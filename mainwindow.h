@@ -38,7 +38,9 @@ class MainWindow : public QMainWindow{
     */
         void on_pushButton_clicked();
 
-    private:
+        void on_debugButton_clicked();
+
+private:
         Ui::MainWindow *ui;
 };
 
