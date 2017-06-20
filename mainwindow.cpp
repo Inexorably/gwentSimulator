@@ -18,10 +18,6 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow){
     ui->setupUi(this);
-
-    std::map<QString,GwentCard> cardLibrary = loadCards();
-    createDeck("D:/GwentSimulator/gwentSimulator/deck_1.csv", &cardLibrary);
-    lookUpCard("Adrenaline Rush", &cardLibrary);
 }
 
 MainWindow::~MainWindow(){
@@ -192,5 +188,7 @@ void MainWindow::on_pushButton_clicked(){
 
 //Here.
 void MainWindow::on_debugButton_clicked(){
-
+    std::map<QString,GwentCard> cardLibrary = loadCards();
+    createDeck("C:/GwentSimulator/gwentSimulator/deck_1.csv", &cardLibrary);
+    lookUpCard("Adrenaline Rush", &cardLibrary);
 }
