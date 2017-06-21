@@ -18,6 +18,7 @@ int randomInt(int min, int max){
 
 //Function implementations.
 
+//Confirmed.
 //Adds a tag to the target card (such as resilient, regressing, etc).
 void addTag(GwentCard &target, const QString tag){
     target.tags.push_back(tag);
@@ -28,6 +29,7 @@ void addArmor(GwentCard &target, const int amount){
     target.currentArmor += amount;
 }
 
+//Confirmed working.
 //Boost the target for the amount.  The board will not change with this effect, so we don't need to pass it.
 void boost(GwentCard &target, const int amount){
     target.currentPower += amount;

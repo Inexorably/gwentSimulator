@@ -13,7 +13,7 @@ GwentAI::GwentAI(GwentGame game){
 
 void GwentAI::processPlay(){
     //Get player turn
-    bool didWePass = gg.playerTwoPassed;
+    bool didWePass = gg.playerOnePassed;
     int whoseTurn = gg.getTurnPlayerId(); // 1 - P1 turn
                                           // 2 - P2 turn
 
