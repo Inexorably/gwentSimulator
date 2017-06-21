@@ -24,7 +24,7 @@ public:
     int evaluatePlayValue(GwentCard card);
 
     //processplay will call this when it decides.
-    void makeDecision();
+    void makeDecision(GwentCard* card);
 
 private:
     GwentGame gg;
