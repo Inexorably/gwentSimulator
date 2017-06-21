@@ -17,7 +17,7 @@ GwentGame::GwentGame(){
     GwentPlayer playerOneV(1);
     GwentPlayer playerTwoV(2);
     playerOne = playerOneV;
-    playerOne = playerTwoV;
+    playerTwo = playerTwoV;
     turnNumber = 0;
     turnPlayerId = 1;
     playerOnePassed = false;
@@ -36,6 +36,15 @@ void GwentGame::changeTurnPlayer(){
     }
     else{
         turnPlayerId = 1;
+    }
+}
+
+void GwentGame::setPlayerPassed(int playerId){
+    if (playerId == 1){
+        playerOnePassed = true;
+    }
+    else{
+        playerTwoPassed = true;
     }
 }
 
@@ -164,7 +173,7 @@ void GwentGame::startGame(){
     //TODO: NOTE: Mulligan phase goes here.
     //Note that when we implement that st card that summons itself on mulligan need to also set position member by looping through board for the card.
 
-    //Set the position members of the card.  Loop through hand, deck.
+    //Set the position members of the card. Loop through hand, deck.
     this->updateCardPositions();
 
     turnNumber = 0;

@@ -34,6 +34,7 @@ public:
 
     //This will occur at the beginning of the game, and draw cards + intialize things like position member for cards and such.
     void startGame();
+    void setPlayerPassed(int playerId);
 
     //Called in startGame.  Will set the positions for all cards in the game correctly.  Can be expensive.
     void updateCardPositions();

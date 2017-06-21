@@ -69,8 +69,9 @@ GwentCard* GwentAI::chooseCard(int minVal){
     int cardChoiceVal = 99999; //start this arbitrarily high
     int maxVal = 0;
 
+    int handSize = gg.playerOne.hand.size();
     //Search hand for the optimal play
-    for (int i = 0; i < gg.playerOne.hand.size(); i++){
+    for (int i = 0; i < handSize; i++){
         //evaluate card's value
         int cardValue = evaluatePlayValue(gg.playerOne.hand[i]);
 
@@ -82,6 +83,7 @@ GwentCard* GwentAI::chooseCard(int minVal){
 
         if (cardValue >= minVal && cardValue < cardChoiceVal){
             cardChoice = &gg.playerOne.hand[i];
+            cardChoiceVal = cardValue;
         }
     }
 

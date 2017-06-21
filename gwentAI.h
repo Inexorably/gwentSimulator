@@ -26,7 +26,6 @@ public:
     //processplay will call this when it decides.
     void makeDecision(GwentCard* card);
 
-private:
     GwentGame gg;
 };
 
