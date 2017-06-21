@@ -198,9 +198,19 @@ void MainWindow::on_debugButton_clicked(){
     game.playerOne.deck = createDeck(DECK_PATH, &cardLibrary);
     game.playerTwo.deck = createDeck(DECK_PATH, &cardLibrary);
 
-    //GwentAI gwentAI(game);
+    GwentAI gwentAI(game);
+    gwentAI.gg.startGame();
 
     //SIMULATE INPUT FROM AHK OR SOME PROGRAM
+    //we lost coin flip. time to make a play
+    gwentAI.processPlay();
+    //we played a bear. Now its the opponents turn. This will usually update
+    //based on ahk observations, but lets do it manually
+    gwentAI.gg.changeTurnPlayer();
+    gwentAI.gg.setPlayerPassed(2);
+    gwentAI.gg.changeTurnPlayer();
+    //player 2 was scared of the bear. lets pass
+    gwentAI.processPlay();
 
     //Define turns:
     //1. P1 plays savage bear
