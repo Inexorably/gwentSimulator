@@ -6,6 +6,7 @@
 #include <deque>
 #include <QString>
 #include <gwentCard.h>
+#include "gwentAI.h"
 
 #include "gwentGame.h"
 #include <QDebug>
@@ -184,7 +185,29 @@ void MainWindow::on_pushButton_clicked(){
 
 //Here.
 void MainWindow::on_debugButton_clicked(){
+    //END GOAL:
+    //Initialize a gwent AI, and play the game out
+
+    //Create a test game.
+    GwentGame game;
+    //first thing we will need to do is load the card library
     std::map<QString,GwentCard> cardLibrary = loadCards();
-    createDeck(DECK_PATH, &cardLibrary);
-    lookUpCard("Adrenaline Rush", &cardLibrary);
+    //Give some players temporary decks.
+    //You've never dueled like this before, Ben Brode Jr.
+    //Give some players temporary decks.
+    game.playerOne.deck = createDeck(DECK_PATH, &cardLibrary);
+    game.playerTwo.deck = createDeck(DECK_PATH, &cardLibrary);
+
+    //GwentAI gwentAI(game);
+
+    //SIMULATE INPUT FROM AHK OR SOME PROGRAM
+
+    //Define turns:
+    //1. P1 plays savage bear
+    //2. P2 Plays a savage bear
+    //3. P1 ends
+    //4. P2 ends
+
+    //gwentAI.processPlay();
+
 }

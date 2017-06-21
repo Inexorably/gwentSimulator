@@ -23,6 +23,8 @@ public:
     GwentBoard board;
     int turnPlayerId;
     int turnNumber;
+    bool playerOnePassed;
+    bool playerTwoPassed;
 
     //This will occur at the beginning of the game, and draw cards + intialize things like position member for cards and such.
     void startGame();
@@ -31,15 +33,9 @@ public:
     void updateCardPositions();
 
 private:
-
-
-
     //The round number (1, 2, 3).
 
     int roundNumber;
-
-
-
 
     //Ends the round.  Moves all cards to grave except for resilient.  Will trigger death effects, creates an event for round end.  If the game is not over, calls startRound.
     void endRound();

@@ -20,6 +20,8 @@ GwentGame::GwentGame(){
     playerOne = playerTwoV;
     turnNumber = 0;
     turnPlayerId = 1;
+    playerOnePassed = false;
+    playerTwoPassed = false;
 }
 
 //Get the id of the current turn player.
@@ -167,4 +169,11 @@ void GwentGame::startGame(){
 
     turnNumber = 0;
     turnPlayerId = randomInt(1,2);
+}
+
+//Ends the round.  Moves all cards to grave except for resilient.  Will trigger death effects, creates an event for round end.  If the game is not over, calls startRound.
+void GwentGame::endRound(){
+    //set playerpassed vars to false
+    playerOnePassed = false;
+    playerTwoPassed = false;
 }
