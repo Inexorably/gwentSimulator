@@ -33,6 +33,7 @@ void MainWindow::displayRow(std::vector<GwentCard> cards, QTextBrowser &text){
         temp += cards[i].name;
         if (i+1 != cards.size())
             temp += ", ";
+
     }
     text.setText(temp);
 }
@@ -45,6 +46,14 @@ void MainWindow::displayRow(std::vector<GwentCard> cards, QTextBrowser &text, QL
         temp += "[" + cards[i].name + " " + QString::number(cards[i].currentPower) + "/" + QString::number(cards[i].basePower);
         if (cards[i].currentArmor != 0){
             temp += " " + QString::number(cards[i].currentArmor) + " Armor";
+        }
+        if (!cards[i].tags.empty()){
+            for (size_t j = 0; j < cards[i].tags.size(); j++){
+                temp += " " + cards[i].tags[j];
+                if (j + 1 != cards[i].tags.size()){
+                    temp += ",";
+                }
+            }
         }
         temp += "]";
         if (i+1 != cards.size())
@@ -94,6 +103,7 @@ void MainWindow::on_pushButton_clicked(){
     testPosition.push_back(1);
     play(game.playerOne.hand[0], game.playerOne, game.board, testPosition);
     boost(game.board.playerOneRanged[0], 10);
+    addTag(game.board.playerOneRanged[0], "Memes");
 
     //Display to the ui.
     displayGame(game);
@@ -198,7 +208,7 @@ void MainWindow::on_debugButton_clicked(){
     game.playerOne.deck = createDeck(DECK_PATH, &cardLibrary);
     game.playerTwo.deck = createDeck(DECK_PATH, &cardLibrary);
 
-    //GwentAI gwentAI(game);
+    GwentAI gwentAI(game);
 
     //SIMULATE INPUT FROM AHK OR SOME PROGRAM
 
