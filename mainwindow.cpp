@@ -1,3 +1,4 @@
+
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "gwentUtilities.h"
@@ -104,7 +105,11 @@ void MainWindow::on_pushButton_clicked(){
     play(game.playerOne.hand[0], game.playerOne, game.board, testPosition);
     boost(game.board.playerOneRanged[0], 10);
     addTag(game.board.playerOneRanged[0], "Memes");
-
+    addArmor(game.board.playerOneRanged[0], 10);
+    //banish(game.board.playerOneRanged[0], game.playerOne, game.board);
+    for (int i = 0; i < 4; i++){
+        qDebug() << QString::number(game.board.playerOneGraveyard.size()) << " ";
+    }
     //Display to the ui.
     displayGame(game);
     ui->debugBrowser->append("Execution complete.\n");
