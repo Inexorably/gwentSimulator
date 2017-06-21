@@ -5,7 +5,6 @@
 
 #include "gwentGame.h"
 #include "gwentCard.h"
-#include "gwentMechanics.h"
 
 #include <QTextBrowser>
 #include <QLabel>
