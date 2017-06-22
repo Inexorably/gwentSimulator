@@ -215,7 +215,7 @@ void MainWindow::on_debugButton_clicked(){
     game.playerOne.deck = createDeck(DECK_PATH, &cardLibrary);
     game.playerTwo.deck = createDeck(DECK_PATH, &cardLibrary);
 
-    GwentAI gwentAI(game);
+    GwentAI gwentAI(game, &cardLibrary);
     gwentAI.gg.startGame();
 
     //SIMULATE INPUT FROM AHK OR SOME PROGRAM

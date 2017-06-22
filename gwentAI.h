@@ -4,6 +4,7 @@
 #include "gwentGame.h"
 #include "gwentPlayer.h"
 #include "gwentCard.h"
+#include <map>
 
 // GwentAI
 // Description: GwentAI's main member is a GwentGame object gg. The game instance inside of AI however
@@ -14,7 +15,7 @@
 class GwentAI
 {
 public:
-    GwentAI(GwentGame game);
+    GwentAI(GwentGame game, std::map<QString,GwentCard>* cardLib);
 
     //the main decision entry point
     void processPlay();
@@ -27,6 +28,7 @@ public:
     void makeDecision(GwentCard* card);
 
     GwentGame gg;
+    std::map<QString,GwentCard>* cardLibrary;
 };
 
 #endif // GWENTAI_H

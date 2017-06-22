@@ -1,7 +1,8 @@
 #include "gwentAI.h"
 
-GwentAI::GwentAI(GwentGame game){
+GwentAI::GwentAI(GwentGame game, std::map<QString,GwentCard>* cardLib){
     gg = game;
+    cardLibrary = cardLib;
 }
 
 // processPlay()
@@ -102,11 +103,18 @@ int GwentAI::evaluatePlayValue(GwentCard card){
 
 // We can either pass, or play a card.
 // Input: a pointer to a card we want to play. If its nullptr, we want to pass
+//TODO: makeDecision should also take card position as arguments. Right now the decision function does not determine where to place.
 void GwentAI::makeDecision(GwentCard* card){
+
     if (card == nullptr){
+        GwentCard passCard;
+        gg.executeTurn(true, passCard, -1, -1, -1);
         return; //TODO: call the pass function
     }
 
-    //TODO: call the play function on card
+    //call the play function on card
+    GwentCard cardToPlay = *card;
+    //TODO: change position arguments
+    gg.executeTurn(false, cardToPlay, 0, 0, 1);
     return;
 }
