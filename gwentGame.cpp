@@ -726,7 +726,6 @@ void GwentGame::spawn(GwentCard target, int row, int index, int side){
     target.row = row;
     target.index = index;
     target.side = side;
-
     //Figure out which board and side it is to be spawned on.
     if (side == 1){
         //Spawns on player 1's side.
