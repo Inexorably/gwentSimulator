@@ -164,9 +164,6 @@ void GwentGame::startGame(){
         this->playerTwo.draw();
     }
 
-    //TODO: NOTE: Mulligan phase goes here.
-    //Note that when we implement that st card that summons itself on mulligan need to also set position member by looping through board for the card.
-
     //Set the position members of the card. Loop through hand, deck.
     this->updateCardPositions();
 
@@ -692,9 +689,20 @@ std::vector<GwentCard*> GwentGame::lowest(){
 }
 
 //Mulligan the card at the target position (in hand).
-void GwentGame::mulligan(const size_t index, GwentPlayer &player){
-    //Remember to implement blacklist vector (likely member of player).
-    //TODO: NOTE: will require a blacklist vector of type GwentCard to be temp held in the player.  Can clear after mulligan phase ends in each round.
+void GwentGame::mulligan(GwentCard &target){
+    //We begin by pushing the target onto a blacklist vector.  We should remember to clear the blacklist vector at the end of each mulligan phase.
+    //blacklist.push_back(target);
+    if (target.side == 1){
+        playerOne.draw();
+        playerOne.deck.push_back(target);
+    }
+    else{
+        playerTwo.draw();
+        playerTwo.deck.push_back(target);
+    }
+
+    //The target is now added to deck.  We now remove it from the hand.
+    removeCard(target);
     return;
 }
 
