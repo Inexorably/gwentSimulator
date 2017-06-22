@@ -217,13 +217,10 @@ void MainWindow::on_debugButton_clicked(){
 
     GwentAI gwentAI(game, &cardLibrary);
     gwentAI.gg.startGame();
-    if (gwentAI.gg.getTurnPlayerId() == 2){
-        GwentCard passCard;
-        gwentAI.gg.executeTurn(true, passCard, 0, 0, 0);
-    }
 
     //SIMULATE INPUT FROM AHK OR SOME PROGRAM
     //we lost coin flip. time to make a play
+    gwentAI.processPlay();
     gwentAI.processPlay();
     displayGame(gwentAI.gg);
     //Define turns:
