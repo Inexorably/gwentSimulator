@@ -20,12 +20,11 @@ public:
     void draw();
     void shuffleDeck();
     int id;
-  
+
     //some var for boardState board
     std::deque<GwentCard> deck;
     std::vector<GwentCard> hand;
 
-private:
     int pointTotal;
     int roundsWon;
 
