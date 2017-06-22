@@ -102,10 +102,14 @@ void MainWindow::on_pushButton_clicked(){
     testPosition.push_back(1);
     testPosition.push_back(0);
     testPosition.push_back(1);
-    play(game.playerOne.hand[0], game.playerOne, game.board, testPosition);
-    boost(game.board.playerOneRanged[0], 10);
-    addTag(game.board.playerOneRanged[0], "Memes");
-    addArmor(game.board.playerOneRanged[0], 10);
+    //play(game.playerOne.hand[0], game.playerOne, game.board, testPosition);
+    game.play(game.playerOne.hand[0], 1, 0, 1);
+    //boost(game.board.playerOneRanged[0], 10);
+    game.boost(game.board.playerOneRanged[0], 10);
+    //addTag(game.board.playerOneRanged[0], "Memes");
+    game.addTag(game.board.playerOneRanged[0], "Resilient");
+    //addArmor(game.board.playerOneRanged[0], 10);
+    game.addArmor(game.board.playerOneRanged[0], 10);
     //banish(game.board.playerOneRanged[0], game.playerOne, game.board);
     for (int i = 0; i < 4; i++){
         qDebug() << QString::number(game.board.playerOneGraveyard.size()) << " ";
