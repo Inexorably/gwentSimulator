@@ -217,18 +217,15 @@ void MainWindow::on_debugButton_clicked(){
 
     GwentAI gwentAI(game, &cardLibrary);
     gwentAI.gg.startGame();
+    if (gwentAI.gg.getTurnPlayerId() == 2){
+        GwentCard passCard;
+        gwentAI.gg.executeTurn(true, passCard, 0, 0, 0);
+    }
 
     //SIMULATE INPUT FROM AHK OR SOME PROGRAM
     //we lost coin flip. time to make a play
     gwentAI.processPlay();
-    //we played a bear. Now its the opponents turn. This will usually update
-    //based on ahk observations, but lets do it manually
-    gwentAI.gg.changeTurnPlayer();
-    gwentAI.gg.setPlayerPassed(2);
-    gwentAI.gg.changeTurnPlayer();
-    //player 2 was scared of the bear. lets pass
-    gwentAI.processPlay();
-
+    displayGame(gwentAI.gg);
     //Define turns:
     //1. P1 plays savage bear
     //2. P2 Plays a savage bear
