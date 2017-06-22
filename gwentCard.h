@@ -14,7 +14,10 @@ public:
     //Second number is row number (only relevant for board).  Melee, ranged, siege is 0 1 2.
     //Third number is index in the vector / deque.
     //Fourth number is which player's side it is on, same as gwentPlayer.id (1 or 2).
-    std::vector<size_t> position;
+    int zone;
+    int row;
+    int index;
+    int side;
 
     //A card can have different tags assigned to it.  Some are inherent such as cursed and regressing, and others are added such as adreneline rush.
     //These can be stored in a vector because the amount of tags can and will vary on cards.
