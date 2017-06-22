@@ -7,6 +7,7 @@
 class GwentBoard
 {
 public:
+    //Default constructor.
     GwentBoard();
 
     // Each game will have a board
@@ -17,7 +18,6 @@ public:
     std::vector<GwentCard> playerTwoMelee;
     std::vector<GwentCard> playerTwoRanged;
     std::vector<GwentCard> playerTwoSiege;
-
 
     //The graveyard and banished zone.
     std::vector<GwentCard> playerOneGraveyard;

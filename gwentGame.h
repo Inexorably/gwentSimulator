@@ -8,6 +8,7 @@
 #include <random>       // std::default_random_engine
 #include <chrono>       // std::chrono::system_clock
 #include <algorithm>    // std::shuffle
+#include <vector>
 
 #include "gwentCard.h"
 
@@ -29,6 +30,7 @@ public:
     GwentBoard board;
     int turnPlayerId;
     int turnNumber;
+    std::vector<GwentCard> blacklist;
 
     //Members/Functions for passing turn
     void playerPass();
@@ -108,7 +110,7 @@ public:
     std::vector<GwentCard*> lowest();
 
     //Mulligan the card at the target position (in hand).
-    void mulligan(const size_t index, GwentPlayer &player);
+    void mulligan(GwentCard &target);
 
     //Play a card from hand.
     void play(GwentCard &target, int row, int index, int side);
