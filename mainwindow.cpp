@@ -89,6 +89,11 @@ void MainWindow::on_pushButton_clicked(){
     //Give some players temporary decks.
     game.playerOne.deck = createDeck(DECK_PATH, &cardLibrary);
     game.playerTwo.deck = createDeck(DECK_PATH, &cardLibrary);
+    if (game.playerOne.deck.empty() || game.playerTwo.deck.empty()){
+        ui->debugBrowser->append("Empty deck detected in chosen csv.");
+        return;
+    }
+
     ui->debugBrowser->append("Test players initialized.");
 
     //The players have now been created.  We now cycle through the deck / hand post mulligan (not implemented) and assign the positions to the cards.  The turn player is also decided randomly.
@@ -97,11 +102,6 @@ void MainWindow::on_pushButton_clicked(){
 
     //The game is set up correctly now.  Now we should play the game.  For debugging purposes, this is just using the different functions and making sure they display properly.
     //TEST STUFF GOES HERE NORMALLY.
-    std::vector<size_t> testPosition;
-    testPosition.push_back(0);
-    testPosition.push_back(1);
-    testPosition.push_back(0);
-    testPosition.push_back(1);
     //play(game.playerOne.hand[0], game.playerOne, game.board, testPosition);
     game.play(game.playerOne.hand[0], 1, 0, 1);
     //boost(game.board.playerOneRanged[0], 10);
@@ -111,9 +111,7 @@ void MainWindow::on_pushButton_clicked(){
     //addArmor(game.board.playerOneRanged[0], 10);
     game.addArmor(game.board.playerOneRanged[0], 10);
     //banish(game.board.playerOneRanged[0], game.playerOne, game.board);
-    for (int i = 0; i < 4; i++){
-        qDebug() << QString::number(game.board.playerOneGraveyard.size()) << " ";
-    }
+
     //Display to the ui.
     displayGame(game);
     ui->debugBrowser->append("Execution complete.\n");
