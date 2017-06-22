@@ -39,6 +39,21 @@ public:
     //Called in startGame.  Will set the positions for all cards in the game correctly.  Can be expensive.
     void updateCardPositions();
 
+    //Adds a tag to the target card (such as resilient, regressing, etc).
+    void addTag(GwentCard &target, const QString tag);
+
+    //Adds armor to the target.
+    void addArmor(GwentCard &target, const int amount);
+
+    //Boost the target for the amount.  The board will not change with this effect, so we don't need to pass it.
+    void boost(GwentCard &target, const int amount);
+
+    //Banish the card at the position.  Takes the target and the player who the card is on the side of as inputs.  Note that the banished zone is a member of GwentBoard as it is public info.
+    void banish(GwentCard &target);
+
+    //Consume functions.  If the target is in the hand / field it is sent to grave, else if in grave it is banished.  Note: should activate a "consumed trigger", as other mechanics shall with their triggers.
+    void consume(GwentCard &cardConsuming, GwentCard &target);
+
 private:
     //The round number (1, 2, 3).
 
@@ -67,22 +82,6 @@ const QString TAG_RESILIENT = "Resilient";
 */
 
 int randomInt(int min, int max);
-
-//Adds a tag to the target card (such as resilient, regressing, etc).
-void addTag(GwentCard &target, const QString tag);
-
-//Adds armor to the target.
-void addArmor(GwentCard &target, const int amount);
-
-//Boost the target for the amount.  The board will not change with this effect, so we don't need to pass it.
-void boost(GwentCard &target, const int amount);
-
-//Banish the card at the position.  Takes the target and the player who the card is on the side of as inputs.  Note that the banished zone is a member of GwentBoard as it is public info.
-void banish(GwentCard &target, GwentGame &game);
-void banish(GwentCard &target, GwentPlayer &player, GwentBoard &board);
-
-//Consume functions.  If the target is in the hand / field it is sent to grave, else if in grave it is banished.  Note: should activate a "consumed trigger", as other mechanics shall with their triggers.
-void consume(GwentCard &target, GwentPlayer &player, GwentBoard &board);
 
 //Takes the target and damage amount as an input.  We pass the target by reference.  If the target dies, we move it to graveyard / banish it.
 //We also pass the player as an argument as some cards can damage cards in hand (such as Nilfguard revealing the highest card in one's hand and setting it to one strength).
