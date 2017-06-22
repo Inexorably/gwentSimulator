@@ -29,6 +29,9 @@ public:
     GwentBoard board;
     int turnPlayerId;
     int turnNumber;
+
+    //Members/Functions for passing turn
+    void playerPass();
     bool playerOnePassed;
     bool playerTwoPassed;
 
@@ -38,6 +41,19 @@ public:
 
     //Called in startGame.  Will set the positions for all cards in the game correctly.  Can be expensive.
     void updateCardPositions();
+
+    //Players have 2 options for advancing game, they can pass or they can play a card. nullptr = pass
+    void executeTurn(bool passTurn, GwentCard &card, int row, int index, int side);
+
+    //The round number (1, 2, 3).
+    int roundNumber;
+
+    //Ends the round.  Moves all cards to grave except for resilient.  Will trigger death effects, creates an event for round end.  If the game is not over, calls startRound.
+    //Returns true if game complete, false if game is still going on
+    bool endRound();
+    bool gameComplete;
+
+    //-------GwentMechanics-------\\
 
     //Adds a tag to the target card (such as resilient, regressing, etc).
     void addTag(GwentCard &target, const QString tag);
@@ -130,15 +146,6 @@ public:
     //Takes the target and weaken amount as an input.  We pass the target by reference.  If the target dies, we move it to graveyard / banish it.
     void weaken(GwentCard &target, const int amount);
 
-private:
-    //The round number (1, 2, 3).
-
-    int roundNumber;
-
-    //Ends the round.  Moves all cards to grave except for resilient.  Will trigger death effects, creates an event for round end.  If the game is not over, calls startRound.
-    void endRound();
-
-    bool gameComplete;
 };
 
 

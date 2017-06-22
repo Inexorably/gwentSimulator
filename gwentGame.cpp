@@ -1,4 +1,5 @@
 #include "gwentGame.h"
+#include <QDebug>
 
 /*Random for later:
  *     //Random Source: https://stackoverflow.com/questions/5008804/generating-random-integer-from-a-range
@@ -31,11 +32,17 @@ int GwentGame::getTurnPlayerId(){
 
 //Change the current turn player.
 void GwentGame::changeTurnPlayer(){
+    //If it is player 1's turn, we want to change to player 2 unless player 2 passed.
     if (turnPlayerId == 1){
-        turnPlayerId = 2;
+        if (!playerTwoPassed){
+            turnPlayerId = 2;
+        }
     }
+    //If it is player 2's turn, we want to change to player 1 unless player 1 passed.
     else{
-        turnPlayerId = 1;
+        if (!playerOnePassed){
+            turnPlayerId = 1;
+        }
     }
 }
 
@@ -167,15 +174,106 @@ void GwentGame::startGame(){
     turnPlayerId = randomInt(1,2);
 }
 
+//Current player passes round
+void GwentGame::playerPass(){
+    if (getTurnPlayerId() == 1){
+        playerOnePassed = true;
+    }
+    else {
+        playerTwoPassed = true;
+    }
+}
+
+//Players have 2 options for advancing game, they can pass or they can play a card. To pass, set passTurn to true
+void GwentGame::executeTurn(bool passTurn, GwentCard &card, int row, int index, int side){
+    //Did the player pass?
+    if (passTurn){
+        //Pass
+        playerPass();
+
+        //Check to see if both players passed
+        if (playerOnePassed && playerTwoPassed){
+            //Both players passed. We want to end the round/game
+            endRound();
+            return;
+        }
+        else{
+            //Gameplay continues
+            //change whose turn it is
+            changeTurnPlayer();
+
+            //advance the turnNumber
+            turnNumber++;
+
+            return;
+        }
+    }
+
+    //The player wants to play a card.
+
+    //First, confirm that this function was called correctly
+    if (turnPlayerId != card.side){
+        qDebug() << "You dont own the card youre trying to play!";
+    }
+
+    //The player is playing a card
+    //TODO: normally, we would parse through the card's effects here and call different mechanics to resolve the board state.
+    //      Since there are no effects on the cards currently, we are just going to play the card
+
+    //Play the card
+    play(card, row, index, side);
+
+    //change whose turn it is
+    changeTurnPlayer();
+
+    //advance the turnNumber
+    turnNumber++;
+
+    return;
+}
+
 //Ends the round.  Moves all cards to grave except for resilient.  Will trigger death effects, creates an event for round end.  If the game is not over, calls startRound.
-void GwentGame::endRound(){
+bool GwentGame::endRound(){
+    //Check to see who won the round
+    if (playerOne.getPointTotal() > playerTwo.getPointTotal()){
+        //Player One wins the round
+        playerOne.roundsWon++;
+
+        //check to see if playerOne won the game
+        if(playerOne.roundsWon == 2){
+            gameComplete = true;
+        }
+    }
+    else if (playerOne.getPointTotal() < playerTwo.getPointTotal()){
+        //Player Two wins the round
+        playerTwo.roundsWon++;
+
+        //check to see if playerTwo won the game
+        if(playerTwo.roundsWon == 2){
+            gameComplete = true;
+        }
+    }
+    else {
+        //its a tie
+        playerOne.roundsWon++;
+        playerTwo.roundsWon++;
+
+        //check to see if playerTwo won the game
+        if(playerOne.roundsWon == 2 || playerTwo.roundsWon == 2){
+            gameComplete = true;
+        }
+    }
+
+    //TODO: death effects, round end effects
+
     //set playerpassed vars to false
     playerOnePassed = false;
     playerTwoPassed = false;
+
+    return gameComplete;
 }
 
 //Old mechanics are here.
-#include <QDebug>
 
 /*********************************************************/
 
