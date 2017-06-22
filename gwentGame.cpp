@@ -844,7 +844,7 @@ void strengthen(GwentCard &target, const int amount){
 }
 
 //Takes the target and weaken amount as an input.  We pass the target by reference.  If the target dies, we move it to graveyard / banish it.
-void weaken(GwentCard &target, GwentPlayer &player, const int amount, GwentBoard &board){
+void GwentGame::weaken(GwentCard &target, const int amount){
     //Handle the case that the target does not die.
     if (target.currentPower - amount > 0 && target.basePower - amount > 0){
         target.currentPower -= amount;
