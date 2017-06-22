@@ -128,7 +128,7 @@ public:
     void strengthen(GwentCard &target, const int amount);
 
     //Takes the target and weaken amount as an input.  We pass the target by reference.  If the target dies, we move it to graveyard / banish it.
-    void weaken(GwentCard &target, GwentPlayer &player, const int amount, GwentBoard &board);
+    void weaken(GwentCard &target, const int amount);
 
 private:
     //The round number (1, 2, 3).
