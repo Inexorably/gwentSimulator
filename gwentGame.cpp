@@ -209,24 +209,24 @@ int randomInt(int min, int max){
 
 //Confirmed.
 //Adds a tag to the target card (such as resilient, regressing, etc).
-void addTag(GwentCard &target, const QString tag){
+void GwentGame::addTag(GwentCard &target, const QString tag){
     target.tags.push_back(tag);
 }
 
 //Confirmed.
 //Adds armor to the target.
-void addArmor(GwentCard &target, const int amount){
+void GwentGame::addArmor(GwentCard &target, const int amount){
     target.currentArmor += amount;
 }
 
 //Confirmed.
 //Boost the target for the amount.  The board will not change with this effect, so we don't need to pass it.
-void boost(GwentCard &target, const int amount){
+void GwentGame::boost(GwentCard &target, const int amount){
     target.currentPower += amount;
 }
 
-//Banish the card at the position.  Takes the target and the player who the card is on the side of as inputs.  Note that the banished zone is a member of GwentBoard as it is public info.
-void banish(GwentCard &target, GwentPlayer &player, GwentBoard &board){
+//Banish the card at the position.
+void GwentGame::banish(GwentCard &target){
     //Position works as follows:
     //Note that position is passed in the form of a 4d size_t var.
     //First number is board / graveyard / hand / deck respectively, 0 1 2 3.  4 for banished.
@@ -240,70 +240,36 @@ void banish(GwentCard &target, GwentPlayer &player, GwentBoard &board){
     GwentCard original = target;
 
     //To which player's banished zone depends upon where it was banished.
-    if (target.position[3] == 1){
-        target.position[0] = 4;
-        target.position[2] = (int)board.playerOneBanished.size();
-        target.position[3] = 1;
+    if (target.side == 1){
+        target.zone = 4;
+        target.row = -1;
+        target.index = (int)board.playerOneBanished.size();
+        target.side = 1;
         board.playerOneBanished.push_back(target);
         //qDebug() << target.name << " banished to " << QString::number(target.position[0]) << QString::number(target.position[1]) << QString::number(target.position[2]) << QString::number(target.position[3]);
     }
     else{
-        target.position[0] = 4;
-        target.position[2] = (int)board.playerTwoBanished.size();
-        target.position[3] = 2;
+        target.zone = 4;
+        target.index = (int)game.board.playerTwoBanished.size();
+        target.side = 2;
         board.playerTwoBanished.push_back(target);
     }
     //We now remove the card from where it was originally.
-    removeCard(original, player, board);
+    removeCard(original);
 
     //qDebug() << target.name << " banished to " << QString::number(target.position.size());// << QString::number(target.position[1]) << QString::number(target.position[2]) << QString::number(target.position[3]);
 }
 
-void banish(GwentCard &target, GwentGame &game){
-    //Position works as follows:
-    //Note that position is passed in the form of a 4d size_t var.
-    //First number is board / graveyard / hand / deck respectively, 0 1 2 3.  4 for banished.
-    //Second number is row number (only relevant for board).  Melee, ranged, siege is 0 1 2.
-    //Third number is index in the vector / deque.
-    //Fourth number is which player's side it is on, same as GwentPlayer.id (1 or 2).
-
-    //When a card is banished / destroyed / discard, its power is reset.
-    target.resetToBaseCopy();
-
-    GwentCard original = target;
-
-    //To which player's banished zone depends upon where it was banished.
-    if (target.position[3] == 1){
-        target.position[0] = 4;
-        target.position[2] = (int)game.board.playerOneBanished.size();
-        target.position[3] = 1;
-        game.board.playerOneBanished.push_back(target);
-        qDebug() << target.name << " banished to " << QString::number(target.position[0]) << QString::number(target.position[1]) << QString::number(target.position[2]) << QString::number(target.position[3]);
-    }
-    else{
-        target.position[0] = 4;
-        target.position[2] = (int)game.board.playerTwoBanished.size();
-        target.position[3] = 2;
-        game.board.playerTwoBanished.push_back(target);
-    }
-    //We now remove the card from where it was originally.
-    removeCard(original, game.playerOne, game.board);
-
-    qDebug() << target.name << " banished to " << QString::number(target.position.size());// << QString::number(target.position[1]) << QString::number(target.position[2]) << QString::number(target.position[3]);
-}
-
 //Consume functions.  If the target is in the hand / field it is sent to grave, else if in grave it is banished.  Note: should activate a "consumed trigger", as other mechanics shall with their triggers.
 //Takes card consuming as an input too such that it can buff the consumed card.  Only grave hag will need to be hard coded for this.
-void consume(GwentCard &cardConsuming, GwentCard &target, GwentPlayer &player, GwentBoard &board){
-    std::vector<size_t> position = target.position;
+void GwentGame::consume(GwentCard &cardConsuming, GwentCard &target){
+    GwentCard original = target;
 
     //Boost the card that consumed the target by the current power of the target.
     boost(cardConsuming, target.currentPower);
 
     //When a card is banished / destroyed / discard, its power is reset.
     target.resetToBaseCopy();
-
-    GwentCard original = target;
 
     //Note that position is passed in the form of a 4d size_t var.
     //First number is board / graveyard / hand / deck respectively, 0 1 2 3, 4 for banished.
@@ -312,40 +278,44 @@ void consume(GwentCard &cardConsuming, GwentCard &target, GwentPlayer &player, G
     //Fourth number is which player's side it is on, same as gwentPlayer.id (1 or 2).
 
     //To which player's graveyard/banished zone depends upon where it was consumed from.
-    if (target.position[3] == 1){
+    if (target.side == 1){
         //In the case the the target is consumed from the hand / deck / board, it is sent to the graveyard.
-        if (position[0] == 0 || position[0] == 2 || position[0] == 3){
+        if (target.zone == 0 || target.zone == 2 || target.zone == 3){
             //We update the position of target.
-            target.position[0] = 1;
-            target.position[2] = board.playerOneGraveyard.size();
+            target.zone = 1;
+            target.row = -1;
+            target.index = board.playerOneGraveyard.size();
             board.playerOneGraveyard.push_back(target);
-            removeCard(original, player, board);
+            removeCard(original);
         }
         //In the case it is consumed from grave, it is banished.
-        else if (position[0] == 1){
+        else if (target.zone == 1){
             //We update the position of target.
-            target.position[0] = 4;
-            target.position[2] = board.playerOneBanished.size();
+            target.zone = 4;
+            target.index = board.playerOneBanished.size();
+            target.row = -1;
             board.playerOneBanished.push_back(target);
             removeCard(original, player, board);
         }
     }
     else{
         //In the case the the target is consumed from the hand / deck / board, it is sent to the graveyard.
-        if (position[0] == 0 || position[0] == 2 || position[0] == 3){
+        if (target.zone == 0 || target.zone == 2 || target.zone == 3){
             //We update the position of target.
-            target.position[0] = 1;
-            target.position[2] = board.playerTwoGraveyard.size();
+            target.zone = 1;
+            target.index = board.playerTwoGraveyard.size();
+            target.row = -1;
             board.playerTwoGraveyard.push_back(target);
-            removeCard(original, player, board);
+            removeCard(original);
         }
         //In the case it is consumed from grave, it is banished.
-        else if (position[0] == 1){
+        else if (target.zone == 1){
             //We update the position of target.
-            target.position[0] = 4;
-            target.position[2] = board.playerTwoBanished.size();
+            target.zone = 4;
+            target.index = board.playerTwoBanished.size();
+            target.row = -1;
             board.playerTwoBanished.push_back(target);
-            removeCard(original, player, board);
+            removeCard(original);
         }
     }
 }
