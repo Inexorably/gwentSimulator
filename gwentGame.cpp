@@ -69,89 +69,78 @@ void GwentGame::updateCardPositions(){
     //To make this shorter convert to function calls.  Just annoying cause would need to overload to take deque and vector (deck vs others).
     //TODO: NOTE: This^.  Current method is autism.
 
-    for (int i = 0; i < this->playerOne.hand.size(); i++){
+    for (size_t i = 0; i < this->playerOne.hand.size(); i++){
         this->playerOne.hand[i].zone = 2;
         this->playerOne.hand[i].row = -1;
         this->playerOne.hand[i].index = i;
         this->playerOne.hand[i].side = 1;
     }
-    for (int i = 0; i < this->playerTwo.hand.size(); i++){
+    for (size_t i = 0; i < this->playerTwo.hand.size(); i++){
         this->playerTwo.hand[i].zone = 2;
         this->playerTwo.hand[i].row = -1;
         this->playerTwo.hand[i].index = i;
         this->playerTwo.hand[i].side = 2;
     }
-    for (int i = 0; i < this->board.playerOneMelee.size(); i++){
-        this->board.playerOneMelee[i].position.clear();
-        this->board.playerOneMelee[i].position.push_back(0);
-        this->board.playerOneMelee[i].position.push_back(0);
-        this->board.playerOneMelee[i].position.push_back(i);
-        this->board.playerOneMelee[i].position.push_back(1);
+    for (size_t i = 0; i < this->board.playerOneMelee.size(); i++){
+        this->board.playerOneMelee[i].zone = 0;
+        this->board.playerOneMelee[i].row = 0;
+        this->board.playerOneMelee[i].index = i;
+        this->board.playerOneMelee[i].side = 1;
     }
-    for (int i = 0; i < this->board.playerTwoMelee.size(); i++){
-        this->board.playerTwoMelee[i].position.clear();
-        this->board.playerTwoMelee[i].position.push_back(0);
-        this->board.playerTwoMelee[i].position.push_back(0);
-        this->board.playerTwoMelee[i].position.push_back(i);
-        this->board.playerTwoMelee[i].position.push_back(2);
+    for (size_t i = 0; i < this->board.playerTwoMelee.size(); i++){
+        this->board.playerTwoMelee[i].zone = 0;
+        this->board.playerTwoMelee[i].row = 0;
+        this->board.playerTwoMelee[i].index = i;
+        this->board.playerTwoMelee[i].side = 2;
     }
-    for (int i = 0; i < this->board.playerOneRanged.size(); i++){
-        this->board.playerOneRanged[i].position.clear();
-        this->board.playerOneRanged[i].position.push_back(0);
-        this->board.playerOneRanged[i].position.push_back(1);
-        this->board.playerOneRanged[i].position.push_back(i);
-        this->board.playerOneRanged[i].position.push_back(1);
+    for (size_t i = 0; i < this->board.playerOneRanged.size(); i++){
+        this->board.playerOneRanged[i].zone = 0;
+        this->board.playerOneRanged[i].row = 1;
+        this->board.playerOneRanged[i].index = i;
+        this->board.playerOneRanged[i].side = 1;
     }
-    for (int i = 0; i < this->board.playerTwoRanged.size(); i++){
-        this->board.playerTwoRanged[i].position.clear();
-        this->board.playerTwoRanged[i].position.push_back(0);
-        this->board.playerTwoRanged[i].position.push_back(1);
-        this->board.playerTwoRanged[i].position.push_back(i);
-        this->board.playerTwoRanged[i].position.push_back(2);
+    for (size_t i = 0; i < this->board.playerTwoRanged.size(); i++){
+        this->board.playerTwoRanged[i].zone = 0;
+        this->board.playerTwoRanged[i].row = 1;
+        this->board.playerTwoRanged[i].index = i;
+        this->board.playerTwoRanged[i].side = 2;
     }
-    for (int i = 0; i < this->board.playerOneSiege.size(); i++){
-        this->board.playerOneSiege[i].position.clear();
-        this->board.playerOneSiege[i].position.push_back(0);
-        this->board.playerOneSiege[i].position.push_back(2);
-        this->board.playerOneSiege[i].position.push_back(i);
-        this->board.playerOneSiege[i].position.push_back(1);
+    for (size_t i = 0; i < this->board.playerOneSiege.size(); i++){
+        this->board.playerOneSiege[i].zone = 0;
+        this->board.playerOneSiege[i].row = 2;
+        this->board.playerOneSiege[i].index = i;
+        this->board.playerOneSiege[i].side = 1;
     }
-    for (int i = 0; i < this->board.playerTwoSiege.size(); i++){
-        this->board.playerTwoSiege[i].position.clear();
-        this->board.playerTwoSiege[i].position.push_back(0);
-        this->board.playerTwoSiege[i].position.push_back(2);
-        this->board.playerTwoSiege[i].position.push_back(i);
-        this->board.playerTwoSiege[i].position.push_back(2);
+    for (size_t i = 0; i < this->board.playerTwoSiege.size(); i++){
+        this->board.playerTwoSiege[i].zone = 0;
+        this->board.playerTwoSiege[i].row = 2;
+        this->board.playerTwoSiege[i].index = i;
+        this->board.playerTwoSiege[i].side = 2;
     }
-    for (int i = 0; i < this->board.playerOneGraveyard.size(); i++){
-        this->board.playerOneGraveyard[i].position.clear();
-        this->board.playerOneGraveyard[i].position.push_back(1);
-        this->board.playerOneGraveyard[i].position.push_back(-1);
-        this->board.playerOneGraveyard[i].position.push_back(i);
-        this->board.playerOneGraveyard[i].position.push_back(1);
+    for (size_t i = 0; i < this->board.playerOneGraveyard.size(); i++){
+        this->board.playerOneGraveyard[i].zone = 1;
+        this->board.playerOneGraveyard[i].row = -1;
+        this->board.playerOneGraveyard[i].index = i;
+        this->board.playerOneGraveyard[i].side = 1;
     }
-    for (int i = 0; i < this->board.playerTwoGraveyard.size(); i++){
-        this->board.playerTwoGraveyard[i].position.clear();
-        this->board.playerTwoGraveyard[i].position.push_back(1);
-        this->board.playerTwoGraveyard[i].position.push_back(-1);
-        this->board.playerTwoGraveyard[i].position.push_back(i);
-        this->board.playerTwoGraveyard[i].position.push_back(2);
+    for (size_t i = 0; i < this->board.playerTwoGraveyard.size(); i++){
+        this->board.playerTwoGraveyard[i].zone = 1;
+        this->board.playerTwoGraveyard[i].row = -1;
+        this->board.playerTwoGraveyard[i].index = i;
+        this->board.playerTwoGraveyard[i].side = 2;
     }
-    for (int i = 0; i < this->playerOne.deck.size(); i++){
-        this->playerOne.deck[i].position.clear();
-        this->playerOne.deck[i].position.push_back(3);
-        this->playerOne.deck[i].position.push_back(-1);
-        this->playerOne.deck[i].position.push_back(i);
-        this->playerOne.deck[i].position.push_back(1);
+    for (size_t i = 0; i < this->playerOne.deck.size(); i++){
+        this->playerOne.deck[i].zone = 3;
+        this->playerOne.deck[i].row = -1;
+        this->playerOne.deck[i].index = i;
+        this->playerOne.deck[i].side = 1;
     }
-    for (int i = 0; i < this->playerTwo.deck.size(); i++){
-        this->playerTwo.deck[i].position.clear();
-        this->playerTwo.deck[i].position.push_back(3);
-        this->playerTwo.deck[i].position.push_back(-1);
-        this->playerTwo.deck[i].position.push_back(i);
-        this->playerTwo.deck[i].position.push_back(2);
+    for (size_t i = 0; i < this->playerTwo.deck.size(); i++){
+        this->playerTwo.deck[i].zone = 3;
+        this->playerTwo.deck[i].row = -1;
+        this->playerTwo.deck[i].index = i;
+        this->playerTwo.deck[i].side = 2;
     }
-
 }
 
 
@@ -247,7 +236,7 @@ void GwentGame::banish(GwentCard &target){
     }
     else{
         target.zone = 4;
-        target.index = (int)game.board.playerTwoBanished.size();
+        target.index = (int)board.playerTwoBanished.size();
         board.playerTwoBanished.push_back(target);
     }
     //We now remove the card from where it was originally.
@@ -291,7 +280,7 @@ void GwentGame::consume(GwentCard &cardConsuming, GwentCard &target){
             target.index = board.playerOneBanished.size();
             target.row = -1;
             board.playerOneBanished.push_back(target);
-            removeCard(original, player, board);
+            removeCard(original);
         }
     }
     else{
