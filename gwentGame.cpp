@@ -789,6 +789,7 @@ void GwentGame::removeCard(GwentCard &target){
                 board.playerTwoSiege.erase(board.playerTwoSiege.begin()+target.index);
             }
         }
+        updateCardPositions();
         return;
     }
     //Account for the event that we must remove from the graveyard.
@@ -799,6 +800,7 @@ void GwentGame::removeCard(GwentCard &target){
         }
         else
             board.playerTwoGraveyard.erase(board.playerTwoGraveyard.begin()+target.index);
+        updateCardPositions();
         return;
     }
     //We account for if we are removing from the deck.
@@ -808,6 +810,7 @@ void GwentGame::removeCard(GwentCard &target){
             playerOne.deck.erase(playerOne.deck.begin()+target.index);
         else
             playerTwo.deck.erase(playerTwo.deck.begin()+target.index);
+        updateCardPositions();
         return;
     }
     //The last possibility is it is in the player's hand that we are removing from.
@@ -816,6 +819,7 @@ void GwentGame::removeCard(GwentCard &target){
             playerOne.hand.erase(playerOne.hand.begin()+target.index);
         else
             playerTwo.hand.erase(playerTwo.hand.begin()+target.index);
+        updateCardPositions();
         return;
     }
     qDebug() << "End of function reached: removeCard";
