@@ -196,7 +196,7 @@ void MainWindow::on_pushButton_clicked(){
     ui->debugBrowser->append("Player Two Ranged: \n");
     currentRow = game.board.playerTwoRanged;
     for (int i = 0; i < currentRow.size(); i++){
-        QString temp = currentRow[i].name + ", ";
+ 5       QString temp = currentRow[i].name + ", ";
         ui->debugBrowser->append(temp);
     }
     ui->debugBrowser->append("Player Two Siege: \n");
@@ -228,7 +228,8 @@ void MainWindow::on_debugButton_clicked(){
     game.playerOne.deck = createDeck(DECK_PATH, &cardLibrary);
     game.playerTwo.deck = createDeck(DECK_PATH, &cardLibrary);
 
-    GwentAI gwentAI(game, &cardLibrary);
+    GwentAI temp(game, &cardLibrary);
+    gwentAI = temp;
     gwentAI.gg.startGame();
 
     //SIMULATE INPUT FROM AHK OR SOME PROGRAM
