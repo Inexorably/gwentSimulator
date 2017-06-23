@@ -160,8 +160,8 @@ void GwentGame::startGame(){
 
     //Draw the 12 cards.
     for (int i = 0; i < 12; i++){
-        this->playerOne.draw();
-        this->playerTwo.draw();
+        draw(playerOne);
+        draw(playerTwo);
     }
 
     //Set the position members of the card. Loop through hand, deck.
@@ -500,6 +500,7 @@ void GwentGame::discard(GwentCard &target){
 //While draw is a member function of GwentPlayer, it is also a mechanic from cards such as spies.
 void GwentGame::draw(GwentPlayer &player){
     player.draw();
+    updateCardPositions();
 }
 
 //Heal the target.  Can take just the card as input as will not change the board.
@@ -695,11 +696,11 @@ void GwentGame::mulligan(GwentCard &target){
     //We begin by pushing the target onto a blacklist vector.  We should remember to clear the blacklist vector at the end of each mulligan phase.
     //blacklist.push_back(target);
     if (target.side == 1){
-        playerOne.draw();
+        draw(playerOne);
         playerOne.deck.push_back(target);
     }
     else{
-        playerTwo.draw();
+        draw(playerTwo);
         playerTwo.deck.push_back(target);
     }
 
@@ -797,6 +798,9 @@ void GwentGame::removeCard(GwentCard &target){
         return;
     }
     qDebug() << "End of function reached: removeCard";
+    //Lazy right now.  For future if efficency is problem: make it so that when a specific row is messed with (ie an element is removed
+    //from that row, then update the positions of all elements following it.
+    updateCardPositions();
     return;
 }
 
