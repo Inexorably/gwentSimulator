@@ -37,6 +37,9 @@ public:
     bool playerOnePassed;
     bool playerTwoPassed;
 
+    //
+
+
     //This will occur at the beginning of the game, and draw cards + intialize things like position member for cards and such.
     void startGame();
     void setPlayerPassed(int playerId);

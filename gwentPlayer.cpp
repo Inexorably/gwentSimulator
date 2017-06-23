@@ -6,7 +6,6 @@ GwentPlayer::GwentPlayer(){
 
 GwentPlayer::GwentPlayer(int id){
     this->id = id;
-    this->pointTotal = 0;
 }
 
 
@@ -18,10 +17,6 @@ void GwentPlayer::draw(){
     //Draw the top card of the deck.
     hand.push_back(deck.front());
     deck.pop_front();
-}
-
-int GwentPlayer::getPointTotal(){
-    return pointTotal;
 }
 
 void GwentPlayer::shuffleDeck(){
