@@ -57,10 +57,31 @@ void GwentGame::setPlayerPassed(int playerId){
 
 int GwentGame::getPlayerPointTotal(int playerId){
     if (playerId == 1){
-        return playerOne.getPointTotal();
+        //We loop through melee.
+        int points = 0;
+        for (size_t i = 0; i < board.playerOneMelee.size(); i++){
+            points += board.playerOneMelee[i].currentPower;
+        }
+        for (size_t i = 0; i < board.playerOneRanged.size(); i++){
+            points += board.playerOneRanged[i].currentPower;
+        }
+        for (size_t i = 0; i < board.playerOneSiege.size(); i++){
+            points += board.playerOneSiege[i].currentPower;
+        }
+        return points;
     }
     else{
-        return playerTwo.getPointTotal();
+        int points = 0;
+        for (size_t i = 0; i < board.playerTwoMelee.size(); i++){
+            points += board.playerTwoMelee[i].currentPower;
+        }
+        for (size_t i = 0; i < board.playerTwoRanged.size(); i++){
+            points += board.playerTwoRanged[i].currentPower;
+        }
+        for (size_t i = 0; i < board.playerTwoSiege.size(); i++){
+            points += board.playerTwoSiege[i].currentPower;
+        }
+        return points;
     }
 }
 
@@ -232,7 +253,7 @@ void GwentGame::executeTurn(bool passTurn, GwentCard &card, int row, int index, 
 //Ends the round.  Moves all cards to grave except for resilient.  Will trigger death effects, creates an event for round end.  If the game is not over, calls startRound.
 bool GwentGame::endRound(){
     //Check to see who won the round
-    if (playerOne.getPointTotal() > playerTwo.getPointTotal()){
+    if (getPlayerPointTotal(1) > getPlayerPointTotal(2)){
         //Player One wins the round
         playerOne.roundsWon++;
 
@@ -241,7 +262,7 @@ bool GwentGame::endRound(){
             gameComplete = true;
         }
     }
-    else if (playerOne.getPointTotal() < playerTwo.getPointTotal()){
+    else if (getPlayerPointTotal(1) < getPlayerPointTotal(2)){
         //Player Two wins the round
         playerTwo.roundsWon++;
 

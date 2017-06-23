@@ -16,7 +16,6 @@ public:
     GwentPlayer(int id);
 
     //Some utility functions for the player.  Think, how should AI be stored.  Prob will run in game?
-    int getPointTotal();
     void draw();
     void shuffleDeck();
     int id;
@@ -25,7 +24,6 @@ public:
     std::deque<GwentCard> deck;
     std::vector<GwentCard> hand;
 
-    int pointTotal;
     int roundsWon;
 
 };
