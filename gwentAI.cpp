@@ -48,7 +48,8 @@ void GwentAI::processPlay(){
         //1. We are behind or tied
         if (differential <= 0){
             // Play a card that will put us in the lead, but not by too much, or play the maximum value card
-            GwentCard* cardToPlay = chooseCard(differential+1, ourId);
+            int absDifferential = -1*differential;
+            GwentCard* cardToPlay = chooseCard(absDifferential+1, ourId);
             makeDecision(cardToPlay, ourId);
         }
         //2. We are ahead
@@ -62,7 +63,8 @@ void GwentAI::processPlay(){
         //1. We are behind or tied
         //   - Play a card that will put us in the lead, but not by too much, or play the maximum value card
         if (differential <= 0){
-            GwentCard* cardToPlay = chooseCard(differential+1, ourId);
+            int absDifferential = -1*differential;
+            GwentCard* cardToPlay = chooseCard(absDifferential+1, ourId);
             makeDecision(cardToPlay, ourId);
         }
         //2. We are ahead by 25 points
