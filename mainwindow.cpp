@@ -243,6 +243,7 @@ void MainWindow::on_debugButton_clicked(){
     //4. P2 ends
 
     //gwentAI.processPlay();
+    ui->playTurn->setEnabled(true);
 }
 
 //Cycle through turn by turn to check the ai is not retarded.
