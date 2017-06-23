@@ -15,6 +15,7 @@
 class GwentAI
 {
 public:
+    GwentAI();
     GwentAI(GwentGame game, std::map<QString,GwentCard>* cardLib);
 
     //the main decision entry point

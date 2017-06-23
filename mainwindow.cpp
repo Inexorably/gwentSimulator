@@ -14,13 +14,15 @@
 
 /********************************************/
 //This is a global for debugging.
-//Not here currently.
+GwentGame gameGlobal;
+GwentAI gwentAI;
 /********************************************/
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow){
     ui->setupUi(this);
+    ui->playTurn->setEnabled(false);
 }
 
 MainWindow::~MainWindow(){
@@ -241,10 +243,10 @@ void MainWindow::on_debugButton_clicked(){
     //4. P2 ends
 
     //gwentAI.processPlay();
-
 }
 
 //Cycle through turn by turn to check the ai is not retarded.
 void MainWindow::on_playTurn_clicked(){
-
+    gwentAI.processPlay();
+    displayGame(gwentAI.gg);
 }
