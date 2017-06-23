@@ -4,6 +4,10 @@ GwentAI::GwentAI(GwentGame game){
     gg = game;
 }
 
+GwentAI::GwentAI(){
+    return;
+}
+
 // processPlay()
 // Description: the main "brains" of our AI. should examine the board state, and determine what play to make.
 // Relies on the following functions:

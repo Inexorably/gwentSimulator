@@ -14,6 +14,7 @@
 class GwentAI
 {
 public:
+    GwentAI();
     GwentAI(GwentGame game);
 
     //the main decision entry point
