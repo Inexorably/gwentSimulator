@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1234</width>
-    <height>862</height>
+    <height>1047</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -15,16 +15,27 @@
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="7" column="0">
-     <widget class="QTextBrowser" name="p2melee"/>
-    </item>
-    <item row="9" column="0">
-     <widget class="QTextBrowser" name="p1melee"/>
-    </item>
-    <item row="0" column="2">
-     <widget class="QLabel" name="label_9">
+    <item row="4" column="0">
+     <widget class="QLabel" name="label_6">
       <property name="text">
-       <string>Player Two Graveyard</string>
+       <string>Player Two Ranged</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="0">
+     <widget class="QTextBrowser" name="p2siege"/>
+    </item>
+    <item row="3" column="1">
+     <widget class="QLabel" name="p2siegePoints">
+      <property name="text">
+       <string>0</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="2">
+     <widget class="QLabel" name="label_11">
+      <property name="text">
+       <string>Debug Output</string>
       </property>
      </widget>
     </item>
@@ -48,75 +59,16 @@
     <item row="1" column="2" rowspan="3">
      <widget class="QTextBrowser" name="p2grave"/>
     </item>
-    <item row="3" column="0">
-     <widget class="QTextBrowser" name="p2siege"/>
+    <item row="7" column="0">
+     <widget class="QTextBrowser" name="p2melee"/>
     </item>
-    <item row="4" column="0">
-     <widget class="QLabel" name="label_6">
+    <item row="9" column="0">
+     <widget class="QTextBrowser" name="p1melee"/>
+    </item>
+    <item row="0" column="2">
+     <widget class="QLabel" name="label_9">
       <property name="text">
-       <string>Player Two Ranged</string>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="1">
-     <widget class="QLabel" name="p2siegePoints">
-      <property name="text">
-       <string>0</string>
-      </property>
-     </widget>
-    </item>
-    <item row="4" column="2">
-     <widget class="QLabel" name="label_11">
-      <property name="text">
-       <string>Debug Output</string>
-      </property>
-     </widget>
-    </item>
-    <item row="5" column="2" rowspan="7">
-     <widget class="QTextBrowser" name="debugBrowser"/>
-    </item>
-    <item row="5" column="1">
-     <widget class="QLabel" name="p2rangedPoints">
-      <property name="text">
-       <string>0</string>
-      </property>
-     </widget>
-    </item>
-    <item row="5" column="0">
-     <widget class="QTextBrowser" name="p2ranged"/>
-    </item>
-    <item row="6" column="0">
-     <widget class="QLabel" name="label_4">
-      <property name="text">
-       <string>Player Two Melee</string>
-      </property>
-     </widget>
-    </item>
-    <item row="8" column="0">
-     <widget class="QLabel" name="label_3">
-      <property name="text">
-       <string>Player One Melee</string>
-      </property>
-     </widget>
-    </item>
-    <item row="7" column="1">
-     <widget class="QLabel" name="p2meleePoints">
-      <property name="text">
-       <string>0</string>
-      </property>
-     </widget>
-    </item>
-    <item row="10" column="0">
-     <widget class="QLabel" name="label_2">
-      <property name="text">
-       <string>Player One Ranged</string>
-      </property>
-     </widget>
-    </item>
-    <item row="9" column="1">
-     <widget class="QLabel" name="p1meleePoints">
-      <property name="text">
-       <string>0</string>
+       <string>Player Two Graveyard</string>
       </property>
      </widget>
     </item>
@@ -134,10 +86,24 @@
       </property>
      </widget>
     </item>
+    <item row="10" column="0">
+     <widget class="QLabel" name="label_2">
+      <property name="text">
+       <string>Player One Ranged</string>
+      </property>
+     </widget>
+    </item>
     <item row="12" column="2">
      <widget class="QLabel" name="label_10">
       <property name="text">
        <string>Player One Graveyard</string>
+      </property>
+     </widget>
+    </item>
+    <item row="9" column="1">
+     <widget class="QLabel" name="p1meleePoints">
+      <property name="text">
+       <string>0</string>
       </property>
      </widget>
     </item>
@@ -154,9 +120,6 @@
       </property>
      </widget>
     </item>
-    <item row="13" column="0">
-     <widget class="QTextBrowser" name="p1siege"/>
-    </item>
     <item row="13" column="1">
      <widget class="QLabel" name="p1siegePoints">
       <property name="text">
@@ -171,13 +134,57 @@
       </property>
      </widget>
     </item>
-    <item row="15" column="0">
-     <widget class="QTextBrowser" name="p1hand"/>
+    <item row="13" column="0">
+     <widget class="QTextBrowser" name="p1siege"/>
     </item>
     <item row="16" column="2">
      <widget class="QPushButton" name="debugButton">
       <property name="text">
        <string>Test Game Utilities</string>
+      </property>
+     </widget>
+    </item>
+    <item row="15" column="0">
+     <widget class="QTextBrowser" name="p1hand"/>
+    </item>
+    <item row="5" column="0">
+     <widget class="QTextBrowser" name="p2ranged"/>
+    </item>
+    <item row="5" column="2" rowspan="7">
+     <widget class="QTextBrowser" name="debugBrowser"/>
+    </item>
+    <item row="5" column="1">
+     <widget class="QLabel" name="p2rangedPoints">
+      <property name="text">
+       <string>0</string>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="1">
+     <widget class="QLabel" name="p2meleePoints">
+      <property name="text">
+       <string>0</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="0">
+     <widget class="QLabel" name="label_4">
+      <property name="text">
+       <string>Player Two Melee</string>
+      </property>
+     </widget>
+    </item>
+    <item row="8" column="0">
+     <widget class="QLabel" name="label_3">
+      <property name="text">
+       <string>Player One Melee</string>
+      </property>
+     </widget>
+    </item>
+    <item row="17" column="0">
+     <widget class="QPushButton" name="playTurn">
+      <property name="text">
+       <string>Play Turn (Ai)</string>
       </property>
      </widget>
     </item>
@@ -189,7 +196,7 @@
      <x>0</x>
      <y>0</y>
      <width>1234</width>
-     <height>21</height>
+     <height>26</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuSkellige_best_class">

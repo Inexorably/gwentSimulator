@@ -316,6 +316,8 @@ void GwentGame::banish(GwentCard &target){
     //Third number is index in the vector / deque.
     //Fourth number is which player's side it is on, same as GwentPlayer.id (1 or 2).
 
+    qDebug() << "banish function" << QString::number(target.zone);
+
     //When a card is banished / destroyed / discard, its power is reset.
     target.resetToBaseCopy();
 
@@ -730,6 +732,8 @@ void GwentGame::removeCard(GwentCard &target){
     //Third number is index in the vector / deque.
     //Fourth number is which player's side it is on, same as GwentPlayer.id (1 or 2).
 
+    qDebug()<<"zone" << QString::number(target.zone);
+
     //Handle the case that it is on the board.
     if (target.zone == 0){
         //We now need to know the right row to remove it from.
@@ -829,6 +833,7 @@ void GwentGame::spawn(GwentCard target, int row, int index, int side){
     //Third number is index in the vector / deque.
     //Fourth number is which player's side it is on, same as gwentPlayer.id (1 or 2).
     //Update the position of the target.
+    target.zone = 0;
     target.row = row;
     target.index = index;
     target.side = side;

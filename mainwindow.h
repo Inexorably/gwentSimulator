@@ -39,6 +39,8 @@ class MainWindow : public QMainWindow{
 
         void on_debugButton_clicked();
 
+        void on_playTurn_clicked();
+
 private:
         Ui::MainWindow *ui;
 };

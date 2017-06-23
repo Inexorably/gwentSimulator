@@ -110,7 +110,18 @@ void MainWindow::on_pushButton_clicked(){
     game.addTag(game.board.playerOneRanged[0], "Resilient");
     //addArmor(game.board.playerOneRanged[0], 10);
     game.addArmor(game.board.playerOneRanged[0], 10);
-    //banish(game.board.playerOneRanged[0], game.playerOne, game.board);
+
+    qDebug() << "main " << game.board.playerOneRanged[0].name << QString::number(game.board.playerOneRanged[0].zone);
+    qDebug() << "row index " << QString::number(game.board.playerOneRanged[0].row) << QString::number(game.board.playerOneRanged[0].index);
+    qDebug() << "side " << QString::number(game.board.playerOneRanged[0].side);
+    qDebug() << "banished.size" << QString::number((int)game.board.playerOneBanished.size());
+
+    game.banish(game.board.playerOneRanged[0]);
+
+    qDebug() << "main " << game.board.playerOneRanged[0].name << QString::number(game.board.playerOneRanged[0].zone);
+    qDebug() << "row index " << QString::number(game.board.playerOneRanged[0].row) << QString::number(game.board.playerOneRanged[0].index);
+    qDebug() << "side " << QString::number(game.board.playerOneRanged[0].side);
+    qDebug() << "banished.size" << QString::number((int)game.board.playerOneBanished.size());
 
     //Display to the ui.
     displayGame(game);
@@ -230,5 +241,10 @@ void MainWindow::on_debugButton_clicked(){
     //4. P2 ends
 
     //gwentAI.processPlay();
+
+}
+
+//Cycle through turn by turn to check the ai is not retarded.
+void MainWindow::on_playTurn_clicked(){
 
 }
