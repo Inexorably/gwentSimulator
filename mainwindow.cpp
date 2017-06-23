@@ -216,41 +216,33 @@ void MainWindow::on_pushButton_clicked(){
 //Here.
 void MainWindow::on_debugButton_clicked(){
     //END GOAL:
-        //Initialize a gwent AI, and play the gameGlobal out
+    //Initialize a gwent AI, and play the game out
 
-        //Create a test gameGlobal.
-        //Global rn
-        //first thing we will need to do is load the card library
-        std::map<QString,GwentCard> cardLibrary = loadCards();
-        //Give some players temporary decks.
-        //You've never dueled like this before, Ben Brode Jr.
-        //Give some players temporary decks.
-        gameGlobal.playerOne.deck = createDeck(DECK_PATH, &cardLibrary);
-        gameGlobal.playerTwo.deck = createDeck(DECK_PATH, &cardLibrary);
-        GwentAI temp(gameGlobal);
-        gwentAI = temp;
-        gwentAI.gg.startGame();
+    //Create a test game.
+    GwentGame game;
+    //first thing we will need to do is load the card library
+    std::map<QString,GwentCard> cardLibrary = loadCards();
+    //Give some players temporary decks.
+    //You've never dueled like this before, Ben Brode Jr.
+    //Give some players temporary decks.
+    game.playerOne.deck = createDeck(DECK_PATH, &cardLibrary);
+    game.playerTwo.deck = createDeck(DECK_PATH, &cardLibrary);
 
-        //SIMULATE INPUT FROM AHK OR SOME PROGRAM
-        //we lost coin flip. time to make a play
-        gwentAI.processPlay();
-        //we played a bear. Now its the opponents turn. This will usually update
-        //based on ahk observations, but lets do it manually
-        gwentAI.gg.changeTurnPlayer();
-        gwentAI.gg.setPlayerPassed(2);
-        gwentAI.gg.changeTurnPlayer();
-        //player 2 was scared of the bear. lets pass
-        gwentAI.processPlay();
+    GwentAI gwentAI(game, &cardLibrary);
+    gwentAI.gg.startGame();
 
-        //Define turns:
-        //1. P1 plays savage bear
-        //2. P2 Plays a savage bear
-        //3. P1 ends
-        //4. P2 ends
+    //SIMULATE INPUT FROM AHK OR SOME PROGRAM
+    //we lost coin flip. time to make a play
+    gwentAI.processPlay();
+    gwentAI.processPlay();
+    displayGame(gwentAI.gg);
+    //Define turns:
+    //1. P1 plays savage bear
+    //2. P2 Plays a savage bear
+    //3. P1 ends
+    //4. P2 ends
 
-        //gwentAI.processPlay();
-        ui->playTurn->setEnabled(true);
-
+    //gwentAI.processPlay();
 }
 
 //Cycle through turn by turn to check the ai is not retarded.
