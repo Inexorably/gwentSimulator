@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1234</width>
-    <height>1047</height>
+    <width>1301</width>
+    <height>891</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -195,8 +195,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1234</width>
-     <height>26</height>
+     <width>1301</width>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuSkellige_best_class">
