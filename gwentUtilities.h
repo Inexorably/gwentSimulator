@@ -10,7 +10,7 @@
 std::map<QString,GwentCard> loadCards(){
     //hard code file name, retrive cards
 
-    //Format: Adrenaline Rush,Neutral,0,Event,Bronze,
+    //Format: Priestess of Freya,Skellige,1,Siege,Bronze,L,0,Choose(1, Graveyard),Resurrect(Choice1)
     //parse the csv file
     QString name;
     QString faction;
@@ -23,7 +23,8 @@ std::map<QString,GwentCard> loadCards(){
     std::ifstream file(CARD_LIBRARY_PATH, std::ios::binary);
     std::map<QString,GwentCard> cardLibrary;
     std::string line;
-    //NOTE: Windows line ending \r\n
+    std::vector<QString> effectsVec;
+
     //This gets the file
     while(std::getline(file, line))
     {
@@ -51,13 +52,14 @@ std::map<QString,GwentCard> loadCards(){
                     loyalty = QString::fromStdString(cell);
                     break;
                 default:
+                    effectsVec.push_back(QString::fromStdString(cell));
                     break;
             }
             cellNum++;
         }
 
         //Make a card
-        GwentCard gc(name, faction, basePower.toInt(), type, rank, loyalty, 0);
+        GwentCard gc(name, faction, basePower.toInt(), type, rank, loyalty, 0, effectsVec);
         cardLibrary[name] = gc;
 
         //Reset cell num for each iteration of the loop

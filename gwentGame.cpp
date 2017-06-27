@@ -532,7 +532,8 @@ void GwentGame::heal(GwentCard &target){
 
 //Returns a vector of pointers to the highestCards on the row.
 std::vector<GwentCard*> GwentGame::highestOnRow(std::vector<GwentCard> row){
-    GwentCard temp("Temp", "", 0, "", "", "", 0);
+    std::vector<QString> emptyVec;
+    GwentCard temp("Temp", "", 0, "", "", "", 0, emptyVec);
     std::vector<GwentCard*> highestPower;
     if (row.empty()){
         highestPower.clear();
@@ -554,7 +555,8 @@ std::vector<GwentCard*> GwentGame::highestOnRow(std::vector<GwentCard> row){
 
 //Returns a vector of pointers to the highest card on the board.
 std::vector<GwentCard*> GwentGame::highest(){
-    GwentCard temp("Temp", "", 0, "", "", "", 0);
+    std::vector<QString> emptyVec;
+    GwentCard temp("Temp", "", 0, "", "", "", 0, emptyVec);
     std::vector<GwentCard*> highestPower;
     highestPower.push_back(&temp);
     for (size_t i = 0; i < board.playerOneMelee.size(); i++){
@@ -627,7 +629,8 @@ void GwentGame::lock(GwentCard &target){
 
 //Find the lowest card(s) on the row and returns pointers to them.
 std::vector<GwentCard*> GwentGame::lowestOnRow(std::vector<GwentCard> row){
-    GwentCard temp("Temp", "", 99999, "", "", "", 99999);
+    std::vector<QString> emptyVec;
+    GwentCard temp("Temp", "", 99999, "", "", "", 99999, emptyVec);
     std::vector<GwentCard*> lowestPower;
     if (row.empty()){
         lowestPower.clear();
@@ -649,7 +652,8 @@ std::vector<GwentCard*> GwentGame::lowestOnRow(std::vector<GwentCard> row){
 
 //Finds the lowest card(s) on the board.
 std::vector<GwentCard*> GwentGame::lowest(){
-    GwentCard temp("Temp", "", 0, "", "", "", 0);
+    std::vector<QString> emptyVec;
+    GwentCard temp("Temp", "", 0, "", "", "", 0, emptyVec);
     std::vector<GwentCard*> lowestPower;
     lowestPower.push_back(&temp);
     for (size_t i = 0; i < board.playerOneMelee.size(); i++){
