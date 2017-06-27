@@ -4,7 +4,7 @@ GwentCard::GwentCard(){
 
 }
 
-GwentCard::GwentCard(QString name, QString faction, int basePower, QString type, QString rank, QString loyalty, int baseArmor){
+GwentCard::GwentCard(QString name, QString faction, int basePower, QString type, QString rank, QString loyalty, int baseArmor, std::vector<QString> effects){
     this->name = name;
     this->faction = faction;
     this->basePower = basePower;
@@ -14,6 +14,7 @@ GwentCard::GwentCard(QString name, QString faction, int basePower, QString type,
     this->loyalty = loyalty;
     this->baseArmor = baseArmor;
     this->currentArmor = baseArmor;
+    this->effects = effects;
 }
 
 
