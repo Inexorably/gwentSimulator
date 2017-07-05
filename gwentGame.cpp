@@ -963,3 +963,19 @@ void GwentGame::weaken(GwentCard &target, const int amount){
     }
 }
 
+//For the ai.  Returns the possible game states (in the form of the a std::vector<gwentGame>) such that ai can loop through and choose state.
+//Note: This should also modified the turn play history vector member of each gwentGame to tell the ai how to play to reach the state.
+std::vector<GwentGame> GwentGame::getStates(){
+    //The plays depend on the things played from hand, as well as tickers that occur each turn.
+    //We begin by looping through the hand.
+    for (size_t i = 0; i < hand.size(); i++){
+        //We now play the current card in hand and see how it affects the board state.
+        //We also need to loop through the places where we can put the card.  We generate the valid places for the card to be played, and loop through these.
+    }
+    //Account for end of turn effects.
+    //Note: TODO: Account for start of turn opponent effects?
+
+
+
+
+}
