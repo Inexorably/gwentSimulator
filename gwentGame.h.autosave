@@ -39,7 +39,7 @@ public:
 
     //For the ai.  Returns the possible game states (in the form of the a std::vector<gwentGame>) such that ai can loop through and choose state.
     //Note: This should also modified the turn play history vector member of each gwentGame to tell the ai how to play to reach the state.
-    std::vector<GwentGame> getStates(void);
+    std::vector<GwentGame> getStates();
 
     //This will occur at the beginning of the game, and draw cards + intialize things like position member for cards and such.
     void startGame();

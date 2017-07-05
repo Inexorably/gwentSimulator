@@ -12,8 +12,7 @@
 //              be empty (until they play a card). The game object is still going to be the same as the regular
 //              class, but a lot of AI functions will be wrappers for underlying gwentMechanics functions.
 
-class GwentAI
-{
+class GwentAI{
 public:
     GwentAI();
     GwentAI(GwentGame game, std::map<QString,GwentCard>* cardLib);
